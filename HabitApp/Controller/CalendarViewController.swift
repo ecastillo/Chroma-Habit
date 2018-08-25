@@ -12,86 +12,98 @@ import RealmSwift
 import Pulley
 import MGSegmentedProgressBar
 
-//Write the protocol declaration here:
 protocol ChangeDateDelegate {
     func userSelectedANewDate(date: Date)
 }
 
-class CalendarViewController: UIViewController, JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
-    
-    //Declare the delegate variable here:
+class CalendarViewController: UIViewController {
     var delegate: ChangeDateDelegate?
 
     @IBOutlet weak var calendarView: JTAppleCalendarView!
-    //@IBOutlet weak var tableView: UITableView!
     
     let formatter = DateFormatter()
     var selectedDate = Date()
     let todaysDate = Date()
     let realm = try! Realm()
-    
-    let numOfSections = 3
+    let red = UIColor.red
+    let yellow = UIColor.yellow
+    let white = UIColor.white
+    let darkGray = UIColor.init(hexString: "4F4F4F")
+    let black = UIColor.black
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         calendarView.scrollsToTop = false
      
         calendarView.scrollDirection = .vertical
         calendarView.scrollingMode = .none
-        calendarView.cellSize = 60
-        print("calendar content size: \(calendarView.frame.width)")
+        calendarView.cellSize = calendarView.frame.width/7
+        //calendarView.allowsDateCellStretching = false
         calendarView.register(UINib(nibName: "MonthHeaderView", bundle: Bundle.main),
-                              forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
-                              withReuseIdentifier: "MonthHeaderView")
+                          forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
+                          withReuseIdentifier: "MonthHeaderView")
         
-        //calendarView.scrollToDate(Date(), animateScroll: false)
+        calendarView.scrollToHeaderForDate(todaysDate)
+        calendarView.selectDates([todaysDate])
         
-        //var component = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Date())
-        //component.day = 1
-       // let firstDayOfCurrentMonth = Calendar.current.date(from: component)!
-       // calendarView.scrollToDate(firstDayOfCurrentMonth, animateScroll: false)
-        calendarView.scrollToHeaderForDate(Date())
-        calendarView.selectDates([Date()])
+       // calendarView.removeConstraint(a)
+        
+        let a = NSLayoutConstraint(item: calendarView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 3000)
+        
+        calendarView.addConstraint(a)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         let drawerContentVC = (self.parent as? PulleyViewController)?.drawerContentViewController
         delegate = drawerContentVC as? ChangeDateDelegate
         print("view will appear")
+        
+//        calendarView.addConstraint(NSLayoutConstraint(item: calendarView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: view.frame.height))
     }
-    
-    
-    
-    
+}
 
+// MARK: - JTAppleCalendar
+
+extension CalendarViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         formatter.dateFormat = "yyyy MM dd"
         formatter.timeZone = Calendar.current.timeZone
         formatter.locale = Calendar.current.locale
-
+        
         let startDate = formatter.date(from: "2018 01 01")!
         let endDate = formatter.date(from: "2018 12 31")!
         
         let parameters = ConfigurationParameters(startDate: startDate,
                                                  endDate: endDate,
                                                  generateOutDates: .tillEndOfRow)
+        
         return parameters
     }
     
     func configureCell(cell: JTAppleCell, cellState: CellState) {
+        formatter.dateFormat = "yyyy MM dd"
+        let a = formatter.string(from: todaysDate)
+        let b = formatter.string(from: cellState.date)
         let customCell = cell as! CustomCell
-        if Calendar.current.compare(cellState.date, to: todaysDate, toGranularity: .day) == .orderedSame {
-            customCell.backgroundColor = UIColor.red
+        //if Calendar.current.compare(cellState.date, to: todaysDate, toGranularity: .day) == .orderedSame {
+        if a == b {
+            customCell.backgroundColor = red
         } else {
-            customCell.backgroundColor = UIColor.yellow
+            customCell.backgroundColor = white
         }
+        customCell.selectedView.isHidden = true
         if cellState.isSelected {
-            customCell.dateLabel.textColor = UIColor.white
-            customCell.selectedView.isHidden = false
+            customCell.dateLabel.textColor = white
+            customCell.dateLabel.backgroundColor = black
+           // customCell.selectedView.isHidden = false
         } else {
-            customCell.dateLabel.textColor = UIColor.blue
-            customCell.selectedView.isHidden = true
+            customCell.dateLabel.textColor = darkGray
+            customCell.dateLabel.backgroundColor = white
+           // customCell.selectedView.isHidden = true
         }
         if cellState.dateBelongsTo == .thisMonth {
             customCell.isHidden = false
@@ -100,22 +112,56 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDelegate, JTA
         }
         customCell.dateLabel.text = cellState.text
         
-        let completedHabits = habitsCompleted(on: cellState.date)
+        customCell.bgView.layer.cornerRadius = 6
         
-        customCell.numOfSections = completedHabits.count
+        customCell.shadowView.layer.shadowColor = UIColor.black.cgColor
+        customCell.shadowView.layer.shadowOpacity = 0.17
+        customCell.shadowView.layer.shadowOffset = CGSize.zero
+        customCell.shadowView.layer.shadowRadius = 5/2
+        customCell.shadowView.layer.shadowPath = UIBezierPath(roundedRect: customCell.shadowView.bounds, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: 6, height: 6)).cgPath
         
-        customCell.completedHabits = completedHabits
+        customCell.dateView.layer.cornerRadius = customCell.dateView.frame.width/2
+
+        customCell.dateView.layer.shadowColor = UIColor.black.cgColor
+        customCell.dateView.layer.shadowOpacity = 0.13
+        customCell.dateView.layer.shadowOffset = CGSize.zero
+        customCell.dateView.layer.shadowRadius = 5/2
+        customCell.dateView.layer.shadowPath = UIBezierPath(roundedRect: customCell.dateView.bounds, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: customCell.dateView.bounds.width/2, height: customCell.dateView.bounds.height/2)).cgPath
         
-        customCell.progressView.dataSource = customCell
-        customCell.progressView.lineCap = .square
-        customCell.progressView.transform = CGAffineTransform(rotationAngle: -.pi/2);
         
-        if completedHabits.count > 0 {
-            for section in 0...completedHabits.count-1 {
-                customCell.progressView.setProgress(section: section, steps: 1)
+        customCell.dateLabel.layer.cornerRadius = customCell.dateLabel.frame.width/2
+        
+        //customCell.dateView.layer.masksToBounds = false
+
+    
+        let completedRecords = DBManager.shared.getRecords(on: cellState.date).sorted(byKeyPath: "habit.name")
+        
+        customCell.records = completedRecords
+        
+        if completedRecords.count > 0 {
+            if customCell.progressView == nil {
+                print("wtf")
+                customCell.progressView = MGSegmentedProgressBar(frame: CGRect(x: 20, y: 10, width: 20, height: 20))
+                //customCell.progressView?.backgroundColor = UIColor.black
+                customCell.addSubview(customCell.progressView!)
             }
+            
+            customCell.progressView?.lineCap = .butt
+            //customCell.progressView?.
+            customCell.progressView?.transform = CGAffineTransform(rotationAngle: .pi/2)
+            customCell.progressView?.dataSource = customCell
+            
+            for section in 0...completedRecords.count-1 {
+                customCell.progressView?.setProgress(section: section, steps: 1)
+            }
+            
+            customCell.progressView?.isHidden = false
+        } else {
+            customCell.progressView?.isHidden = true
         }
+
         
+
         
     }
     
@@ -123,7 +169,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDelegate, JTA
         // This function should have the same code as the cellForItemAt function
         configureCell(cell: cell, cellState: cellState)
     }
-
+    
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let customCell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "customCell", for: indexPath) as! CustomCell
         self.calendar(calendar, willDisplay: customCell, forItemAt: date, cellState: cellState, indexPath: indexPath)
@@ -132,11 +178,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDelegate, JTA
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        print(date)
         selectedDate = date
-        //tableView.reloadData()
-        
-        //2 If we have a delegate set, call the method userEnteredANewCityName
         delegate?.userSelectedANewDate(date: date)
         
         guard let validCell = cell as? CustomCell else { return }
@@ -152,81 +194,37 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDelegate, JTA
         configureCell(cell: validCell, cellState: cellState)
     }
     
-    
-    
     func calendar(_ calendar: JTAppleCalendarView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTAppleCollectionReusableView {
         let headerCell = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "MonthHeaderView", for: indexPath) as! MonthHeaderView
         let date = range.start
         formatter.dateFormat = "MMM"
         formatter.timeZone = Calendar.current.timeZone
         formatter.locale = Calendar.current.locale
-        headerCell.title.text = formatter.string(from: date)
+        //headerCell.title.text = formatter.string(from: date)
+        let c = Calendar(identifier: .gregorian).component(.weekday, from: range.start)
+        for (index, monthLabel) in headerCell.monthStackView.arrangedSubviews.enumerated() {
+            let a = monthLabel as! UILabel
+            if index == c-1 {
+                a.text = formatter.string(from: date)
+                a.alpha = 1
+            } else {
+                a.alpha = 0
+            }
+        }
+        
+        
         return headerCell
     }
     
     func calendarSizeForMonths(_ calendar: JTAppleCalendarView?) -> MonthSize? {
-        return MonthSize(defaultSize: 40)
+        return MonthSize(defaultSize: 25)
     }
-    
-    func habitsCompleted(on: Date) -> [Habit] {
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy-MM-dd"
-        let date = dateFormatterGet.string(from: on)
-        let predicate = NSPredicate(format: "date = %@", date)
-        let records = realm.objects(Record.self).filter(predicate)
-        var habits = [Habit]()
-        for record in records {
-            if let habit = record.habit {
-                habits.append(habit)
-            }
-        }
-        habits = habits.sorted(by: { $0.name > $1.name })
-        return habits
-    }
-
 }
+
+// MARK: - HabitSelectedDelegate
 
 extension CalendarViewController: HabitSelectedDelegate {
     func userSelectedAHabit() {
         calendarView.reloadDates([selectedDate])
     }
-}
-
-extension CalendarViewController: HabitCellDoneButtonTapped {
-    func userTappedCellDoneButton(cell: HabitsTableViewCell) {
-        print("userTappedCellDoneButton")
-        
-        let selectedHabit = cell.habit
-        
-        let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy-MM-dd"
-        let date = dateFormatterGet.string(from: selectedDate)
-        
-        if cell.done {
-            let predicate = NSPredicate(format: "habit.id = %@ AND date = %@", (selectedHabit?.id)!, date)
-            let record = realm.objects(Record.self).filter(predicate)
-            try! realm.write {
-                realm.delete(record)
-            }
-            cell.completedButton.titleLabel?.text = "o"
-        } else {
-            let newRecord = Record()
-            newRecord.habit = selectedHabit
-            newRecord.date = date
-            
-            try! realm.write {
-                realm.add(newRecord)
-            }
-            cell.completedButton.titleLabel?.text = "x"
-        }
-        
-        cell.done = !cell.done
-        
-        calendarView.reloadDates([selectedDate])
-        
-        let drawerViewController = pulleyViewController?.drawerContentViewController as? DrawerViewController
-        drawerViewController?.loadData()
-    }
-    
-
 }

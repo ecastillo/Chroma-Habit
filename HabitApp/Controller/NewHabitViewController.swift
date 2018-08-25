@@ -13,10 +13,10 @@ class NewHabitViewController: UIViewController {
     
     var habit: Habit?
     let realm = try! Realm()
-    var delegate: NewHabitDelegate?
-    var delegate2: EditHabitDelegate?
+    var newHabitDelegate: NewHabitDelegate?
+    var editHabitDelegate: EditHabitDelegate?
     var selectedColor: UIColor?
-    let colors = [UIColor.flatRed, UIColor.flatNavyBlue, UIColor.flatMagenta, UIColor.flatSkyBlue, UIColor.flatMint, UIColor.flatBrown, UIColor.flatPink, UIColor.flatCoffee]
+    //let colors = [UIColor.flatRed, UIColor.flatNavyBlue, UIColor.flatMagenta, UIColor.flatSkyBlue, UIColor.flatMint, UIColor.flatBrown, UIColor.flatPink, UIColor.flatCoffee]
     let stackView   = UIStackView()
 
     @IBOutlet weak var nameTextField: UITextField!
@@ -31,9 +31,8 @@ class NewHabitViewController: UIViewController {
         
         var colorButtons:[UIButton] = []
         
-        for (i, color) in colors.enumerated() {
+        for (i, color) in COLORS.enumerated() {
             let button = ColorButton(frame: CGRect(x: 20, y: 400, width: 20, height: 20), mycolor: color)
-            //button.color = color
             button.addTarget(self, action: #selector(testButton2Tapped), for: .touchUpInside)
             button.tag = i
             colorButtons.append(button)
@@ -44,8 +43,6 @@ class NewHabitViewController: UIViewController {
         stackView.axis  = UILayoutConstraintAxis.horizontal
         stackView.distribution  = UIStackViewDistribution.equalSpacing
         stackView.alignment = UIStackViewAlignment.center
-        //stackView.spacing   = 16.0
-        //stackView.distribution = UIStackViewDistribution.fill
         
         for button in colorButtons {
             stackView.addArrangedSubview(button)
@@ -66,13 +63,14 @@ class NewHabitViewController: UIViewController {
             nameTextField.text = habitToEdit.name
             selectedColor = UIColor(hexString: habitToEdit.color)
             for button in stackView.arrangedSubviews as! [ColorButton] {
-                print("habit to edit color: #\(habitToEdit.color), copmared to: \(colors[button.tag].hexValue())")
-                if "#"+habitToEdit.color == colors[button.tag].hexValue() {
+                print("habit to edit color: \(habitToEdit.color), compared to: \(COLORS[button.tag].hexValue())")
+                if habitToEdit.color == COLORS[button.tag].hexValue() {
                     button.isSelected = true
                 }
             }
         } else {
-            selectedColor = colors[0]
+            selectedColor = COLORS[0]
+            (stackView.arrangedSubviews[0] as! ColorButton).isSelected = true
         }
     }
 
@@ -82,29 +80,21 @@ class NewHabitViewController: UIViewController {
     
     @IBAction func saveTapped(_ sender: UIBarButtonItem) {
         if let habitToEdit = habit {
-            try! realm.write {
-                habitToEdit.name = nameTextField.text!
-                habitToEdit.color = (selectedColor?.hexValue())!.replacingOccurrences(of: "#", with: "")
-                print((selectedColor?.hexValue())!.replacingOccurrences(of: "#", with: ""))
-                delegate2?.userEditedAHabit()
-                dismiss(animated: true, completion: nil)
-            }
-        } else {
-            let newHabit = Habit()
-            newHabit.name = nameTextField.text!
-            newHabit.color = (selectedColor?.hexValue())!.replacingOccurrences(of: "#", with: "")
+            DBManager.shared.updateHabit(habitToEdit, name: nameTextField.text!, color: selectedColor)
             
-            try! realm.write {
-                realm.add(newHabit)
-                delegate?.userCreatedANewHabit()
-                dismiss(animated: true, completion: nil)
-            }
+            editHabitDelegate?.userEditedAHabit()
+            dismiss(animated: true, completion: nil)
+        } else {
+            DBManager.shared.createHabit(name: nameTextField.text!, color: selectedColor!)
+
+            newHabitDelegate?.userCreatedANewHabit()
+            dismiss(animated: true, completion: nil)
         }
     }
     
     @objc func testButton2Tapped(_ sender: UIButton) {
         sender.isSelected = true
-        selectedColor = colors[sender.tag]
+        selectedColor = COLORS[sender.tag]
         
         for button in stackView.arrangedSubviews as! [UIButton] {
             if sender != button {
@@ -117,23 +107,9 @@ class NewHabitViewController: UIViewController {
         let alert = UIAlertController(title: "Delete \((habit?.name)!)?", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         let action = UIAlertAction(title: "Delete", style: .default) { (action) in
-            //what will happen when the user clicks the add item button on the alert
-            do {
-                try self.realm.write {
-                    
-                    let dateFormatterGet = DateFormatter()
-                    dateFormatterGet.dateFormat = "yyyy-MM-dd"
-                    let predicate = NSPredicate(format: "habit.id = %@", (self.habit?.id)!)
-                    let records = self.realm.objects(Record.self).filter(predicate)
-                    self.realm.delete(records)
-                    
-                    self.realm.delete(self.habit!)
-                    self.delegate2?.userEditedAHabit()
-                    self.dismiss(animated: true, completion: nil)
-                }
-            } catch {
-                print("Error saving new item: \(error)")
-            }
+            DBManager.shared.deleteHabit(habit: self.habit!)
+            self.editHabitDelegate?.userEditedAHabit()
+            self.dismiss(animated: true, completion: nil)
         }
         alert.addAction(action)
         present(alert, animated: true, completion: nil)

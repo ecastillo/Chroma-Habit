@@ -11,6 +11,5 @@ import RealmSwift
 
 class Record: Object {
     @objc dynamic var date = ""
-    //let habit = LinkingObjects(fromType: Habit.self, property: "records")
     @objc dynamic var habit: Habit?
 }

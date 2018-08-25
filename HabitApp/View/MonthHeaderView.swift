@@ -11,4 +11,5 @@ import JTAppleCalendar
 
 class MonthHeaderView: JTAppleCollectionReusableView {
     @IBOutlet var title: UILabel!
+    @IBOutlet weak var monthStackView: UIStackView!
 }

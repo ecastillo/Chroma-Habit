@@ -12,8 +12,7 @@ import RealmSwift
 class Habit: Object {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var name = ""
-    @objc dynamic var color = "ff0000"
-    //let records = List<Record>()
+    @objc dynamic var color = ""
     
     override static func primaryKey() -> String? {
         return "id"

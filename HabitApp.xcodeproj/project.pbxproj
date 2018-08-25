@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0708049420F0516900973005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0708049320F0516900973005 /* AppDelegate.swift */; };
-		0708049620F0516A00973005 /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0708049520F0516A00973005 /* HabitsViewController.swift */; };
 		0708049820F0516A00973005 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0708049720F0516A00973005 /* CalendarViewController.swift */; };
 		0708049B20F0516A00973005 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0708049920F0516A00973005 /* Main.storyboard */; };
 		0708049D20F0516B00973005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0708049C20F0516B00973005 /* Assets.xcassets */; };
@@ -21,8 +20,13 @@
 		07B6C73D211DEBB600D37A95 /* MonthHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07B6C73C211DEBB600D37A95 /* MonthHeaderView.xib */; };
 		07B6C73F211DEC3B00D37A95 /* MonthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6C73E211DEC3B00D37A95 /* MonthHeaderView.swift */; };
 		07B6C741211E3F9B00D37A95 /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6C740211E3F9B00D37A95 /* DrawerViewController.swift */; };
-		07C08FB821266B06001822F1 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C08FB721266B06001822F1 /* Database.swift */; };
+		07C08FB821266B06001822F1 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C08FB721266B06001822F1 /* DBManager.swift */; };
 		07C08FBA2128D20D001822F1 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C08FB92128D20D001822F1 /* ColorButton.swift */; };
+		07C08FBC212A02EF001822F1 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C08FBB212A02EF001822F1 /* test.swift */; };
+		07C08FBE212A08AA001822F1 /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C08FBD212A08AA001822F1 /* TestCell.swift */; };
+		07C08FC0212A0B54001822F1 /* CustomCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C08FBF212A0B54001822F1 /* CustomCell2.swift */; };
+		07C08FC2212A0BC3001822F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C08FC1212A0BC3001822F1 /* ViewController.swift */; };
+		07E45CE0212BA2F800B76885 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CDF212BA2F800B76885 /* Colors.swift */; };
 		2F75578A7C3541666E80F096 /* Pods_HabitApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 027F7F076877B4FE9BD17E45 /* Pods_HabitApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +34,6 @@
 		027F7F076877B4FE9BD17E45 /* Pods_HabitApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HabitApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0708049020F0516900973005 /* HabitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0708049320F0516900973005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0708049520F0516A00973005 /* HabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewController.swift; sourceTree = "<group>"; };
 		0708049720F0516A00973005 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		0708049A20F0516A00973005 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0708049C20F0516B00973005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -44,8 +47,13 @@
 		07B6C73C211DEBB600D37A95 /* MonthHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MonthHeaderView.xib; sourceTree = "<group>"; };
 		07B6C73E211DEC3B00D37A95 /* MonthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthHeaderView.swift; sourceTree = "<group>"; };
 		07B6C740211E3F9B00D37A95 /* DrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
-		07C08FB721266B06001822F1 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		07C08FB721266B06001822F1 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		07C08FB92128D20D001822F1 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
+		07C08FBB212A02EF001822F1 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		07C08FBD212A08AA001822F1 /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
+		07C08FBF212A0B54001822F1 /* CustomCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell2.swift; sourceTree = "<group>"; };
+		07C08FC1212A0BC3001822F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		07E45CDF212BA2F800B76885 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		6321783073A4A01D74CD2191 /* Pods-HabitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabitApp/Pods-HabitApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A45779AF930EDC74EF87DE84 /* Pods-HabitApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HabitApp/Pods-HabitApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,7 +95,6 @@
 				07B6C744211E765800D37A95 /* Model */,
 				07B6C745211E766A00D37A95 /* View */,
 				07B6C746211E766F00D37A95 /* Controller */,
-				0708049520F0516A00973005 /* HabitsViewController.swift */,
 				0708049C20F0516B00973005 /* Assets.xcassets */,
 				0708049E20F0516B00973005 /* LaunchScreen.storyboard */,
 				070804A120F0516B00973005 /* Info.plist */,
@@ -98,7 +105,7 @@
 		07B6C744211E765800D37A95 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				07C08FB721266B06001822F1 /* Database.swift */,
+				07C08FB721266B06001822F1 /* DBManager.swift */,
 				070804A720F053C400973005 /* Habit.swift */,
 				070804A920F0644200973005 /* Record.swift */,
 			);
@@ -109,6 +116,10 @@
 			isa = PBXGroup;
 			children = (
 				0708049920F0516A00973005 /* Main.storyboard */,
+				07C08FC1212A0BC3001822F1 /* ViewController.swift */,
+				07C08FBF212A0B54001822F1 /* CustomCell2.swift */,
+				07C08FBB212A02EF001822F1 /* test.swift */,
+				07C08FBD212A08AA001822F1 /* TestCell.swift */,
 				07B6C73E211DEC3B00D37A95 /* MonthHeaderView.swift */,
 				07B6C73C211DEBB600D37A95 /* MonthHeaderView.xib */,
 				070804AB20F06CD100973005 /* CustomCell.swift */,
@@ -124,6 +135,7 @@
 				0708049720F0516A00973005 /* CalendarViewController.swift */,
 				07B6C740211E3F9B00D37A95 /* DrawerViewController.swift */,
 				070804AD20F1908200973005 /* NewHabitViewController.swift */,
+				07E45CDF212BA2F800B76885 /* Colors.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -268,18 +280,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07C08FC2212A0BC3001822F1 /* ViewController.swift in Sources */,
 				0708049820F0516A00973005 /* CalendarViewController.swift in Sources */,
+				07C08FBC212A02EF001822F1 /* test.swift in Sources */,
+				07C08FBE212A08AA001822F1 /* TestCell.swift in Sources */,
+				07C08FC0212A0B54001822F1 /* CustomCell2.swift in Sources */,
 				070804AE20F1908200973005 /* NewHabitViewController.swift in Sources */,
 				07AF3B2E20F9629A001F86B1 /* HabitsTableViewCell.swift in Sources */,
 				0708049420F0516900973005 /* AppDelegate.swift in Sources */,
 				07B6C73F211DEC3B00D37A95 /* MonthHeaderView.swift in Sources */,
-				07C08FB821266B06001822F1 /* Database.swift in Sources */,
+				07E45CE0212BA2F800B76885 /* Colors.swift in Sources */,
+				07C08FB821266B06001822F1 /* DBManager.swift in Sources */,
 				070804AA20F0644200973005 /* Record.swift in Sources */,
 				07C08FBA2128D20D001822F1 /* ColorButton.swift in Sources */,
 				070804A820F053C400973005 /* Habit.swift in Sources */,
 				07B6C741211E3F9B00D37A95 /* DrawerViewController.swift in Sources */,
 				070804AC20F06CD100973005 /* CustomCell.swift in Sources */,
-				0708049620F0516A00973005 /* HabitsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +451,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ericcastillo.HabitApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -455,7 +471,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ericcastillo.HabitApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
