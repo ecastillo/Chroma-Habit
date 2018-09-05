@@ -11,6 +11,7 @@ import UIKit
 class ColorButton: UIButton {
     
     let shapeLayer = CAShapeLayer()
+    var shapeRect = CGRect()
     var color: UIColor?
     
     required init(frame: CGRect, mycolor: UIColor) {
@@ -18,9 +19,16 @@ class ColorButton: UIButton {
         super.init(frame: frame)
         
         backgroundColor = color
+        
+        shapeLayer.isHidden = true
+        
+        layer.addSublayer(shapeLayer)
+    }
+    
+    override func layoutSubviews() {
         layer.cornerRadius = frame.width/2
         
-        let shapeRect = CGRect(x: 0, y: 0, width: frame.width+4, height: frame.height+4)
+        shapeRect = CGRect(x: 0, y: 0, width: frame.width+4, height: frame.height+4)
         shapeLayer.bounds = shapeRect
         shapeLayer.position = CGPoint(x: frame.width/2, y: frame.height/2)
         shapeLayer.fillColor = UIColor.clear.cgColor
@@ -29,9 +37,6 @@ class ColorButton: UIButton {
         shapeLayer.lineJoin = kCALineJoinRound
         shapeLayer.lineDashPattern = [5,3]
         shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: shapeRect.width/2).cgPath
-        shapeLayer.isHidden = true
-        
-        layer.addSublayer(shapeLayer)
     }
     
     override var isSelected: Bool {

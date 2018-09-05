@@ -19,6 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print(Realm.Configuration.defaultConfiguration.fileURL)
         
+        let realm = try! Realm()
+        let habitLists = realm.objects(HabitList.self)
+        if habitLists.isEmpty {
+            let habitList = HabitList()
+            try! realm.write {
+                realm.add(habitList)
+            }
+        }
+        
         return true
     }
 

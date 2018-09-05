@@ -14,7 +14,7 @@ class DrawerViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     var selectedDate = Date()
     let realm = try! Realm()
-    var habits: Results<Habit>?
+    var habits: List<Habit>?
     var delegate: HabitSelectedDelegate?
     var selectedHabit: Habit?
     var calendarViewController: CalendarViewController?
@@ -25,8 +25,6 @@ class DrawerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         loadData()
         
@@ -44,12 +42,12 @@ class DrawerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         calendarViewController = pulleyViewController?.primaryContentViewController as? CalendarViewController
         
         pulleyViewController?.setDrawerPosition(position: .partiallyRevealed, animated: false)
-        delegate = calendarViewController
+        //delegate = calendarViewController
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let habits = DBManager.shared.getHabits()
-        return habits.count
+        return habits?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,11 +58,11 @@ class DrawerViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             let record = DBManager.shared.getRecord(for: habit, on: selectedDate)
             cell.done = record.count > 0 ? true : false
-            if cell.done == true {
-                cell.completedButton.setTitle("x", for: .normal)
-            } else {
-                cell.completedButton.setTitle("o", for: .normal)
-            }
+//            if cell.done == true {
+//                cell.completedButton.setTitle("x", for: .normal)
+//            } else {
+//                cell.completedButton.setTitle("o", for: .normal)
+//            }
             cell.titleView.backgroundColor = UIColor(hexString: habit.color)
             
             cell.habit = habit
@@ -84,7 +82,10 @@ class DrawerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func loadData() {
-        habits = DBManager.shared.getHabits().sorted(byKeyPath: "name", ascending: true)
+        habits = DBManager.shared.getHabits()
+        if habits != nil {
+            habits!.sorted(byKeyPath: "name", ascending: true)
+        }
         tableView.reloadData()
     }
     
@@ -104,7 +105,9 @@ class DrawerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBAction func todayButtonTapped(_ sender: UIBarButtonItem) {
         print("today button tapped")
-        calendarViewController?.calendarView.scrollToHeaderForDate(Date(), triggerScrollToDateDelegate: false, withAnimation: true, extraAddedOffset: 0, completionHandler: nil)
+        //calendarViewController?.calendarView.scrollToHeaderForDate(Date(), triggerScrollToDateDelegate: false, withAnimation: true, extraAddedOffset: 0, completionHandler: nil)
+        calendarViewController?.calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: false, animateScroll: true, preferredScrollPosition: .centeredVertically, extraAddedOffset: 0, completionHandler: nil)
+        calendarViewController?.calendarView.selectDates([Date()])
     }
     
     @objc func handleToolbarTap(_ sender: UITapGestureRecognizer) {
@@ -143,13 +146,13 @@ extension DrawerViewController: HabitCellDoneButtonTapped {
         
         cell.done = !cell.done
         
-        if cell.done {
-            DBManager.shared.createRecord(habit: selectedHabit!, date: selectedDate)
-            cell.completedButton.titleLabel?.text = "x"
-        } else {
-            DBManager.shared.deleteRecord(for: selectedHabit!, on: selectedDate)
-            cell.completedButton.titleLabel?.text = "o"
-        }
+//        if cell.done {
+//            DBManager.shared.createRecord(habit: selectedHabit!, date: selectedDate)
+//            cell.completedButton.titleLabel?.text = "x"
+//        } else {
+//            DBManager.shared.deleteRecord(for: selectedHabit!, on: selectedDate)
+//            cell.completedButton.titleLabel?.text = "o"
+//        }
         
         let calendarViewController = pulleyViewController?.primaryContentViewController as? CalendarViewController
         calendarViewController?.calendarView.reloadDates([selectedDate])

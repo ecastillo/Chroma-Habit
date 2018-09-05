@@ -16,36 +16,43 @@ class CustomCell: JTAppleCell {
     var records: Results<Record>?
     
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var dateView: UIView!
     @IBOutlet weak var selectedView: UIView!
-    @IBOutlet weak var progressView: MGSegmentedProgressBar?
+    //@IBOutlet weak var progressView: MGSegmentedProgressBar?
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var shadowView: UIView!
-    @IBOutlet weak var dateView: UIView!
+   // @IBOutlet weak var dateView: UIView!
+    @IBOutlet weak var monthView: UIView!
+    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var progressStackView: UIStackView!
+    @IBOutlet weak var progressStackViewContainer: UIView!
+    
+    var border = CALayer()
+    //var outsideBorder = CALayer()
     
     //var progressView: MGSegmentedProgressBar?
-}
-
-extension CustomCell: MGSegmentedProgressBarDataSource {
-    func progressBar(_ progressBar: MGSegmentedProgressBar, barForSection section: Int) -> MGBarView {
-        let bar =  MGBarView()
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
-        if records?.isEmpty == false {
-            for color in COLORS {
-                if color.hexValue() == records![section].habit?.color {
-                    bar.backgroundColor = color
-                }
-            }
-           // bar.backgroundColor = UIColor(hexString: (records![section].habit?.color)!)
-        }
-
-        return bar
+        layer.addSublayer(border)
+        
+        //outsideBorder.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
+//        outsideBorder.backgroundColor = UIColor.white.cgColor
+//        outsideBorder.zPosition = -1
+//        outsideBorder.shadowColor = UIColor.black.cgColor
+//        outsideBorder.shadowRadius = 20
+//        outsideBorder.shadowOffset = CGSize(width: 3, height: 3)
+//        outsideBorder.shadowPath = CGPath(rect: outsideBorder.frame, transform: nil)
+//        outsideBorder.masksToBounds = false
+//        clipsToBounds = false
+//        layer.addSublayer(outsideBorder)
     }
     
-    func numberOfSteps(in progressBar: MGSegmentedProgressBar) -> Int {
-        return records?.count ?? 0
-    }
     
-    func numberOfSections(in progressBar: MGSegmentedProgressBar) -> Int {
-        return records?.count ?? 0
-    }
+    
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//       // outsideBorder.frame = frame
+//    }
 }

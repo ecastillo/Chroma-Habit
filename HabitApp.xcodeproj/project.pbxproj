@@ -27,6 +27,11 @@
 		07C08FC0212A0B54001822F1 /* CustomCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C08FBF212A0B54001822F1 /* CustomCell2.swift */; };
 		07C08FC2212A0BC3001822F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C08FC1212A0BC3001822F1 /* ViewController.swift */; };
 		07E45CE0212BA2F800B76885 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CDF212BA2F800B76885 /* Colors.swift */; };
+		07E45CE4213A2DD500B76885 /* myTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CE3213A2DD500B76885 /* myTableView.swift */; };
+		07E45CE7213CAD6600B76885 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CE5213CAD6600B76885 /* PopupViewController.swift */; };
+		07E45CE8213CAD6600B76885 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E45CE6213CAD6600B76885 /* PopupViewController.xib */; };
+		07E45CEA213DBCC500B76885 /* HabitCellReorderBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CE9213DBCC500B76885 /* HabitCellReorderBackgroundView.swift */; };
+		07E45CEC213DFBF400B76885 /* HabitList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CEB213DFBF400B76885 /* HabitList.swift */; };
 		2F75578A7C3541666E80F096 /* Pods_HabitApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 027F7F076877B4FE9BD17E45 /* Pods_HabitApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +59,11 @@
 		07C08FBF212A0B54001822F1 /* CustomCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell2.swift; sourceTree = "<group>"; };
 		07C08FC1212A0BC3001822F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		07E45CDF212BA2F800B76885 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		07E45CE3213A2DD500B76885 /* myTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTableView.swift; sourceTree = "<group>"; };
+		07E45CE5213CAD6600B76885 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		07E45CE6213CAD6600B76885 /* PopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
+		07E45CE9213DBCC500B76885 /* HabitCellReorderBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCellReorderBackgroundView.swift; sourceTree = "<group>"; };
+		07E45CEB213DFBF400B76885 /* HabitList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitList.swift; sourceTree = "<group>"; };
 		6321783073A4A01D74CD2191 /* Pods-HabitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabitApp/Pods-HabitApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A45779AF930EDC74EF87DE84 /* Pods-HabitApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HabitApp/Pods-HabitApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +118,7 @@
 				07C08FB721266B06001822F1 /* DBManager.swift */,
 				070804A720F053C400973005 /* Habit.swift */,
 				070804A920F0644200973005 /* Record.swift */,
+				07E45CEB213DFBF400B76885 /* HabitList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -116,6 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				0708049920F0516A00973005 /* Main.storyboard */,
+				07E45CE5213CAD6600B76885 /* PopupViewController.swift */,
+				07E45CE6213CAD6600B76885 /* PopupViewController.xib */,
 				07C08FC1212A0BC3001822F1 /* ViewController.swift */,
 				07C08FBF212A0B54001822F1 /* CustomCell2.swift */,
 				07C08FBB212A02EF001822F1 /* test.swift */,
@@ -124,6 +137,7 @@
 				07B6C73C211DEBB600D37A95 /* MonthHeaderView.xib */,
 				070804AB20F06CD100973005 /* CustomCell.swift */,
 				07AF3B2D20F9629A001F86B1 /* HabitsTableViewCell.swift */,
+				07E45CE9213DBCC500B76885 /* HabitCellReorderBackgroundView.swift */,
 				07C08FB92128D20D001822F1 /* ColorButton.swift */,
 			);
 			path = View;
@@ -133,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				0708049720F0516A00973005 /* CalendarViewController.swift */,
+				07E45CE3213A2DD500B76885 /* myTableView.swift */,
 				07B6C740211E3F9B00D37A95 /* DrawerViewController.swift */,
 				070804AD20F1908200973005 /* NewHabitViewController.swift */,
 				07E45CDF212BA2F800B76885 /* Colors.swift */,
@@ -219,6 +234,7 @@
 			files = (
 				070804A020F0516B00973005 /* LaunchScreen.storyboard in Resources */,
 				0708049D20F0516B00973005 /* Assets.xcassets in Resources */,
+				07E45CE8213CAD6600B76885 /* PopupViewController.xib in Resources */,
 				07B6C73D211DEBB600D37A95 /* MonthHeaderView.xib in Resources */,
 				0708049B20F0516A00973005 /* Main.storyboard in Resources */,
 			);
@@ -235,8 +251,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HabitApp/Pods-HabitApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
+				"${BUILT_PRODUCTS_DIR}/GSKStretchyHeaderView/GSKStretchyHeaderView.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/MGSegmentedProgressBar/MGSegmentedProgressBar.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/Pulley/Pulley.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -244,8 +263,11 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GSKStretchyHeaderView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSegmentedProgressBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulley.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -284,13 +306,17 @@
 				0708049820F0516A00973005 /* CalendarViewController.swift in Sources */,
 				07C08FBC212A02EF001822F1 /* test.swift in Sources */,
 				07C08FBE212A08AA001822F1 /* TestCell.swift in Sources */,
+				07E45CEA213DBCC500B76885 /* HabitCellReorderBackgroundView.swift in Sources */,
 				07C08FC0212A0B54001822F1 /* CustomCell2.swift in Sources */,
+				07E45CE7213CAD6600B76885 /* PopupViewController.swift in Sources */,
 				070804AE20F1908200973005 /* NewHabitViewController.swift in Sources */,
 				07AF3B2E20F9629A001F86B1 /* HabitsTableViewCell.swift in Sources */,
 				0708049420F0516900973005 /* AppDelegate.swift in Sources */,
 				07B6C73F211DEC3B00D37A95 /* MonthHeaderView.swift in Sources */,
 				07E45CE0212BA2F800B76885 /* Colors.swift in Sources */,
 				07C08FB821266B06001822F1 /* DBManager.swift in Sources */,
+				07E45CEC213DFBF400B76885 /* HabitList.swift in Sources */,
+				07E45CE4213A2DD500B76885 /* myTableView.swift in Sources */,
 				070804AA20F0644200973005 /* Record.swift in Sources */,
 				07C08FBA2128D20D001822F1 /* ColorButton.swift in Sources */,
 				070804A820F053C400973005 /* Habit.swift in Sources */,

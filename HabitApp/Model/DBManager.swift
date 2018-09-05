@@ -19,8 +19,9 @@ class DBManager {
         dateFormatter.dateFormat = "yyyy-MM-dd"
     }
     
-    func getHabits() -> Results<Habit> {
-        return realm.objects(Habit.self)
+    func getHabits() -> List<Habit>? {
+        //return realm.objects(Habit.self)
+        return realm.objects(HabitList.self).first?.habits
     }
     
     func createHabit(name: String, color: UIColor) {
@@ -28,8 +29,22 @@ class DBManager {
         newHabit.name = name
         newHabit.color = color.hexValue()
         
-        try! realm.write {
-            realm.add(newHabit)
+        let allHabits = getHabits()
+        if let habits = allHabits {
+            if habits.count > 0 {
+                let maxOrder = habits.max(by: { $0.order > $1.order })?.order
+                newHabit.order = maxOrder! + 1
+            } else {
+                newHabit.order = 0
+            }
+            
+            let habitList = realm.objects(HabitList.self).first
+            
+            try! realm.write {
+                //realm.add(newHabit)
+                habitList?.habits.append(newHabit)
+                realm.add(habitList!, update: true)
+            }
         }
     }
     
@@ -45,6 +60,15 @@ class DBManager {
         try! realm.write {
             habit.name = name ?? habit.name
             habit.color = color?.hexValue() ?? habit.color
+        }
+    }
+    
+    func updateHabitOrder(from: Int, to: Int) {
+        let habitList = realm.objects(HabitList.self).first
+        
+        try! realm.write {
+            habitList?.habits.move(from: from, to: to)
+            //realm.add(habitList!, update: true)
         }
     }
     
