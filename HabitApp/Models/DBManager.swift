@@ -19,9 +19,9 @@ class DBManager {
         dateFormatter.dateFormat = "yyyy-MM-dd"
     }
     
-    func getHabits() -> List<Habit>? {
-        //return realm.objects(Habit.self)
-        return realm.objects(HabitList.self).first?.habits
+    func getHabits() -> Results<Habit> {
+        return realm.objects(Habit.self).sorted(byKeyPath: "order")
+        //return realm.objects(HabitList.self).first?.habits
     }
     
     func createHabit(name: String, color: UIColor) {
@@ -29,23 +29,23 @@ class DBManager {
         newHabit.name = name
         newHabit.color = color.hexValue()
         
-        let allHabits = getHabits()
-        if let habits = allHabits {
-            if habits.count > 0 {
-                let maxOrder = habits.max(by: { $0.order > $1.order })?.order
-                newHabit.order = maxOrder! + 1
-            } else {
-                newHabit.order = 0
-            }
-            
-            let habitList = realm.objects(HabitList.self).first
-            
-            try! realm.write {
-                //realm.add(newHabit)
-                habitList?.habits.append(newHabit)
-                realm.add(habitList!, update: true)
-            }
+        let habits = getHabits()
+        //if let habits = allHabits {
+        if habits.count > 0 {
+            let maxOrder = habits.max(by: { $0.order < $1.order })?.order
+            newHabit.order = maxOrder! + 1
+        } else {
+            newHabit.order = 0
         }
+        
+        //let habitList = realm.objects(HabitList.self).first
+        
+        try! realm.write {
+            realm.add(newHabit)
+            //habitList?.habits.append(newHabit)
+            //realm.add(habitList!, update: true)
+        }
+        //}
     }
     
     func deleteHabit(habit: Habit) {
@@ -64,11 +64,28 @@ class DBManager {
     }
     
     func updateHabitOrder(from: Int, to: Int) {
-        let habitList = realm.objects(HabitList.self).first
+        let habits = getHabits()
         
         try! realm.write {
-            habitList?.habits.move(from: from, to: to)
-            //realm.add(habitList!, update: true)
+            for habit in habits {
+                if from < to {
+                    if habit.order == from {
+                        habit.order = to
+                    } else if habit.order > from && habit.order <= to {
+                        habit.order = habit.order - 1
+                    }
+                } else {
+                    if habit.order == from {
+                        habit.order = to
+                    } else if habit.order >= to && habit.order < from {
+                        habit.order = habit.order + 1
+                    }
+                }
+            }
+        
+        
+            //habitList?.habits.move(from: from, to: to)
+            //realm.add(habits, update: true)
         }
     }
     
@@ -83,10 +100,10 @@ class DBManager {
         return realm.objects(Record.self).filter(predicate)
     }
     
-    func getRecord(for habit: Habit, on date: Date) -> Results<Record> {
+    func getRecord(for habit: Habit, on date: Date) -> Record? {
         let dateString = dateFormatter.string(from: date)
         let predicate = NSPredicate(format: "habit.id = %@ AND date = %@", habit.id, dateString)
-        return realm.objects(Record.self).filter(predicate)
+        return realm.objects(Record.self).filter(predicate).first
     }
     
     func createRecord(habit: Habit, date: Date) {
@@ -100,9 +117,10 @@ class DBManager {
     }
     
     func deleteRecord(for habit: Habit, on date: Date) {
-        let record = getRecord(for: habit, on: date)
-        try! realm.write {
-            realm.delete(record)
+        if let record = getRecord(for: habit, on: date) {
+            try! realm.write {
+                realm.delete(record)
+            }
         }
     }
 }
