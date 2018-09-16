@@ -30,11 +30,12 @@
 		07E45CE8213CAD6600B76885 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E45CE6213CAD6600B76885 /* PopupViewController.xib */; };
 		07E45CEA213DBCC500B76885 /* HabitCellReorderBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CE9213DBCC500B76885 /* HabitCellReorderBackgroundView.swift */; };
 		07E45CEC213DFBF400B76885 /* HabitList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CEB213DFBF400B76885 /* HabitList.swift */; };
-		4E5703BB342E722428F71E4C /* Pods_HabitApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890D4F7561669A19DF808029 /* Pods_HabitApp.framework */; };
+		49E6F184217A77C8530DC0A0 /* Pods_Chroma_Habit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B9774B50144D217D35EB02 /* Pods_Chroma_Habit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0708049020F0516900973005 /* HabitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0273EE23CF654B8BC9C6F59E /* Pods-Chroma Habit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chroma Habit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chroma Habit/Pods-Chroma Habit.debug.xcconfig"; sourceTree = "<group>"; };
+		0708049020F0516900973005 /* Chroma Habit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chroma Habit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0708049320F0516900973005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0708049720F0516A00973005 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		0708049A20F0516A00973005 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,9 +60,8 @@
 		07E45CE6213CAD6600B76885 /* PopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		07E45CE9213DBCC500B76885 /* HabitCellReorderBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCellReorderBackgroundView.swift; sourceTree = "<group>"; };
 		07E45CEB213DFBF400B76885 /* HabitList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitList.swift; sourceTree = "<group>"; };
-		4B5A029B6420D7EAB8E1F9B5 /* Pods-HabitApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HabitApp/Pods-HabitApp.release.xcconfig"; sourceTree = "<group>"; };
-		890D4F7561669A19DF808029 /* Pods_HabitApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HabitApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D3F7A5C877E3083A7A7908C2 /* Pods-HabitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabitApp/Pods-HabitApp.debug.xcconfig"; sourceTree = "<group>"; };
+		82B9774B50144D217D35EB02 /* Pods_Chroma_Habit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chroma_Habit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7D58C3056E44BD684A0E818 /* Pods-Chroma Habit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chroma Habit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chroma Habit/Pods-Chroma Habit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E5703BB342E722428F71E4C /* Pods_HabitApp.framework in Frameworks */,
+				49E6F184217A77C8530DC0A0 /* Pods_Chroma_Habit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +79,7 @@
 		0708048720F0516900973005 = {
 			isa = PBXGroup;
 			children = (
-				0708049220F0516900973005 /* HabitApp */,
+				0708049220F0516900973005 /* Chroma Habit */,
 				0708049120F0516900973005 /* Products */,
 				F63FA1623DDB37483F3730C2 /* Pods */,
 				24476E493D78358B669CE81A /* Frameworks */,
@@ -89,12 +89,12 @@
 		0708049120F0516900973005 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0708049020F0516900973005 /* HabitApp.app */,
+				0708049020F0516900973005 /* Chroma Habit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0708049220F0516900973005 /* HabitApp */ = {
+		0708049220F0516900973005 /* Chroma Habit */ = {
 			isa = PBXGroup;
 			children = (
 				0708049320F0516900973005 /* AppDelegate.swift */,
@@ -105,7 +105,7 @@
 				0708049E20F0516B00973005 /* LaunchScreen.storyboard */,
 				070804A120F0516B00973005 /* Info.plist */,
 			);
-			path = HabitApp;
+			path = "Chroma Habit";
 			sourceTree = "<group>";
 		};
 		07B6C744211E765800D37A95 /* Models */ = {
@@ -152,7 +152,7 @@
 		24476E493D78358B669CE81A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				890D4F7561669A19DF808029 /* Pods_HabitApp.framework */,
+				82B9774B50144D217D35EB02 /* Pods_Chroma_Habit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -160,8 +160,8 @@
 		F63FA1623DDB37483F3730C2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D3F7A5C877E3083A7A7908C2 /* Pods-HabitApp.debug.xcconfig */,
-				4B5A029B6420D7EAB8E1F9B5 /* Pods-HabitApp.release.xcconfig */,
+				0273EE23CF654B8BC9C6F59E /* Pods-Chroma Habit.debug.xcconfig */,
+				C7D58C3056E44BD684A0E818 /* Pods-Chroma Habit.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -169,9 +169,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0708048F20F0516900973005 /* HabitApp */ = {
+		0708048F20F0516900973005 /* Chroma Habit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 070804A420F0516B00973005 /* Build configuration list for PBXNativeTarget "HabitApp" */;
+			buildConfigurationList = 070804A420F0516B00973005 /* Build configuration list for PBXNativeTarget "Chroma Habit" */;
 			buildPhases = (
 				3FEC0A06DA090CEB84E32016 /* [CP] Check Pods Manifest.lock */,
 				0708048C20F0516900973005 /* Sources */,
@@ -183,9 +183,9 @@
 			);
 			dependencies = (
 			);
-			name = HabitApp;
+			name = "Chroma Habit";
 			productName = HabitApp;
-			productReference = 0708049020F0516900973005 /* HabitApp.app */;
+			productReference = 0708049020F0516900973005 /* Chroma Habit.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -203,7 +203,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0708048B20F0516900973005 /* Build configuration list for PBXProject "HabitApp" */;
+			buildConfigurationList = 0708048B20F0516900973005 /* Build configuration list for PBXProject "Chroma Habit" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -216,7 +216,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0708048F20F0516900973005 /* HabitApp */,
+				0708048F20F0516900973005 /* Chroma Habit */,
 			);
 		};
 /* End PBXProject section */
@@ -249,7 +249,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HabitApp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Chroma Habit-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -262,7 +262,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-HabitApp/Pods-HabitApp-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Chroma Habit/Pods-Chroma Habit-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
@@ -283,7 +283,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HabitApp/Pods-HabitApp-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chroma Habit/Pods-Chroma Habit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -451,19 +451,19 @@
 		};
 		070804A520F0516B00973005 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3F7A5C877E3083A7A7908C2 /* Pods-HabitApp.debug.xcconfig */;
+			baseConfigurationReference = 0273EE23CF654B8BC9C6F59E /* Pods-Chroma Habit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YRPW3NL9P9;
-				INFOPLIST_FILE = HabitApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Chroma Habit/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ericcastillo.HabitApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ericcastillo.ChromaHabit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -472,19 +472,19 @@
 		};
 		070804A620F0516B00973005 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4B5A029B6420D7EAB8E1F9B5 /* Pods-HabitApp.release.xcconfig */;
+			baseConfigurationReference = C7D58C3056E44BD684A0E818 /* Pods-Chroma Habit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YRPW3NL9P9;
-				INFOPLIST_FILE = HabitApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Chroma Habit/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ericcastillo.HabitApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ericcastillo.ChromaHabit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -494,7 +494,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0708048B20F0516900973005 /* Build configuration list for PBXProject "HabitApp" */ = {
+		0708048B20F0516900973005 /* Build configuration list for PBXProject "Chroma Habit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				070804A220F0516B00973005 /* Debug */,
@@ -503,7 +503,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		070804A420F0516B00973005 /* Build configuration list for PBXNativeTarget "HabitApp" */ = {
+		070804A420F0516B00973005 /* Build configuration list for PBXNativeTarget "Chroma Habit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				070804A520F0516B00973005 /* Debug */,
