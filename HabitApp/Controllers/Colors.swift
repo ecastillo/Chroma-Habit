@@ -9,7 +9,21 @@
 import Foundation
 import ChameleonFramework
 
-let COLORS = [UIColor.flatRed, UIColor.flatNavyBlue, UIColor.flatMagenta, UIColor.flatSkyBlue, UIColor.flatMint, UIColor.flatBrown, UIColor.flatPink, UIColor.flatCoffee]
+let COLORS = [UIColor.flatRed,
+              UIColor.flatNavyBlue,
+              UIColor.flatMagenta,
+              UIColor.flatSkyBlue,
+              UIColor.flatMint,
+              UIColor.flatBrown,
+              UIColor.flatPink,
+              UIColor.flatCoffee,
+              UIColor.flatMaroon,
+              UIColor.flatLime,
+              UIColor.flatYellowDark,
+              UIColor.flatGrayDark,
+              UIColor.flatForestGreen,
+              UIColor.flatOrange,
+              UIColor.flatPowderBlueDark]
 
 extension UIColor {
     struct Theme {

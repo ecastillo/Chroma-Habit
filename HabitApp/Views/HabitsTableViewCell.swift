@@ -10,11 +10,7 @@ import UIKit
 
 class HabitsTableViewCell: UITableViewCell {
     
-    var done: Bool = false {
-        didSet {
-            showDefaultView()
-        }
-    }
+    private(set) var done: Bool = false
     var checkmarkBackgroundLayer = CALayer()
     let highlight = CALayer()
     let reorderBackgroundView = HabitCellReorderBackgroundView()
@@ -61,21 +57,29 @@ class HabitsTableViewCell: UITableViewCell {
         super.setEditing(editing, animated: animated)
         
         if editing {
-            showEditingView()
+            showEditingView(animated: animated)
         } else {
-            showDefaultView()
+            showDefaultView(animated: animated)
         }
     }
     
-    private func showEditingView() {
+    private func showEditingView(animated: Bool) {
+        CATransaction.begin()
+        CATransaction.setDisableActions(!animated)
+        
         editIconView.isHidden = false
         checkmarkView.isHidden = true
         highlight.frame.size.width = frame.width
         titleLabel.textColor = UIColor.white
         containerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
+        
+        CATransaction.commit()
     }
     
-    private func showDefaultView() {
+    func showDefaultView(animated: Bool) {
+        CATransaction.begin()
+        CATransaction.setDisableActions(!animated)
+        
         editIconView.isHidden = true
         checkmarkView.isHidden = false
         containerView.layer.maskedCorners = [.layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
@@ -89,5 +93,12 @@ class HabitsTableViewCell: UITableViewCell {
             titleLabel.textColor = UIColor.black
             checkmarkImageView.isHidden = true
         }
+        
+        CATransaction.commit()
+    }
+    
+    func setDone(_ isDone: Bool, animated: Bool) {
+        done = isDone
+        showDefaultView(animated: animated)
     }
 }

@@ -15,6 +15,10 @@
 		070804A820F053C400973005 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070804A720F053C400973005 /* Habit.swift */; };
 		070804AA20F0644200973005 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070804A920F0644200973005 /* Record.swift */; };
 		070804AC20F06CD100973005 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070804AB20F06CD100973005 /* CalendarCell.swift */; };
+		074A297B21475E4A0056CD27 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074A297A21475E4A0056CD27 /* OnboardViewController.swift */; };
+		074A297D214D4F8A0056CD27 /* OnboardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074A297C214D4F8A0056CD27 /* OnboardPageViewController.swift */; };
+		074A297F214D54300056CD27 /* OnboardAddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074A297E214D54300056CD27 /* OnboardAddHabitViewController.swift */; };
+		074A2981214D5EB50056CD27 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 074A2980214D5EB50056CD27 /* Onboarding.storyboard */; };
 		07AF3B2E20F9629A001F86B1 /* HabitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF3B2D20F9629A001F86B1 /* HabitsTableViewCell.swift */; };
 		07B6C73D211DEBB600D37A95 /* MonthHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07B6C73C211DEBB600D37A95 /* MonthHeaderView.xib */; };
 		07B6C73F211DEC3B00D37A95 /* MonthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6C73E211DEC3B00D37A95 /* MonthHeaderView.swift */; };
@@ -26,11 +30,10 @@
 		07E45CE8213CAD6600B76885 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E45CE6213CAD6600B76885 /* PopupViewController.xib */; };
 		07E45CEA213DBCC500B76885 /* HabitCellReorderBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CE9213DBCC500B76885 /* HabitCellReorderBackgroundView.swift */; };
 		07E45CEC213DFBF400B76885 /* HabitList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CEB213DFBF400B76885 /* HabitList.swift */; };
-		2F75578A7C3541666E80F096 /* Pods_HabitApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 027F7F076877B4FE9BD17E45 /* Pods_HabitApp.framework */; };
+		4E5703BB342E722428F71E4C /* Pods_HabitApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890D4F7561669A19DF808029 /* Pods_HabitApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		027F7F076877B4FE9BD17E45 /* Pods_HabitApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HabitApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0708049020F0516900973005 /* HabitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0708049320F0516900973005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0708049720F0516A00973005 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +44,10 @@
 		070804A720F053C400973005 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		070804A920F0644200973005 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		070804AB20F06CD100973005 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		074A297A21475E4A0056CD27 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
+		074A297C214D4F8A0056CD27 /* OnboardPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardPageViewController.swift; sourceTree = "<group>"; };
+		074A297E214D54300056CD27 /* OnboardAddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardAddHabitViewController.swift; sourceTree = "<group>"; };
+		074A2980214D5EB50056CD27 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		07AF3B2D20F9629A001F86B1 /* HabitsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsTableViewCell.swift; sourceTree = "<group>"; };
 		07B6C73C211DEBB600D37A95 /* MonthHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MonthHeaderView.xib; sourceTree = "<group>"; };
 		07B6C73E211DEC3B00D37A95 /* MonthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthHeaderView.swift; sourceTree = "<group>"; };
@@ -52,8 +59,9 @@
 		07E45CE6213CAD6600B76885 /* PopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		07E45CE9213DBCC500B76885 /* HabitCellReorderBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCellReorderBackgroundView.swift; sourceTree = "<group>"; };
 		07E45CEB213DFBF400B76885 /* HabitList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitList.swift; sourceTree = "<group>"; };
-		6321783073A4A01D74CD2191 /* Pods-HabitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabitApp/Pods-HabitApp.debug.xcconfig"; sourceTree = "<group>"; };
-		A45779AF930EDC74EF87DE84 /* Pods-HabitApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HabitApp/Pods-HabitApp.release.xcconfig"; sourceTree = "<group>"; };
+		4B5A029B6420D7EAB8E1F9B5 /* Pods-HabitApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HabitApp/Pods-HabitApp.release.xcconfig"; sourceTree = "<group>"; };
+		890D4F7561669A19DF808029 /* Pods_HabitApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HabitApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3F7A5C877E3083A7A7908C2 /* Pods-HabitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabitApp/Pods-HabitApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F75578A7C3541666E80F096 /* Pods_HabitApp.framework in Frameworks */,
+				4E5703BB342E722428F71E4C /* Pods_HabitApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,8 +81,8 @@
 			children = (
 				0708049220F0516900973005 /* HabitApp */,
 				0708049120F0516900973005 /* Products */,
-				41DF199E2D984EE98E96A3AF /* Pods */,
-				B06ABA5E6471348D7F14D91C /* Frameworks */,
+				F63FA1623DDB37483F3730C2 /* Pods */,
+				24476E493D78358B669CE81A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				0708049920F0516A00973005 /* Main.storyboard */,
+				074A2980214D5EB50056CD27 /* Onboarding.storyboard */,
 				07B6C73E211DEC3B00D37A95 /* MonthHeaderView.swift */,
 				07B6C73C211DEBB600D37A95 /* MonthHeaderView.xib */,
 				070804AB20F06CD100973005 /* CalendarCell.swift */,
@@ -129,6 +138,9 @@
 		07B6C746211E766F00D37A95 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				074A297C214D4F8A0056CD27 /* OnboardPageViewController.swift */,
+				074A297A21475E4A0056CD27 /* OnboardViewController.swift */,
+				074A297E214D54300056CD27 /* OnboardAddHabitViewController.swift */,
 				0708049720F0516A00973005 /* CalendarViewController.swift */,
 				07E45CE5213CAD6600B76885 /* PopupViewController.swift */,
 				07E45CE6213CAD6600B76885 /* PopupViewController.xib */,
@@ -137,21 +149,21 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		41DF199E2D984EE98E96A3AF /* Pods */ = {
+		24476E493D78358B669CE81A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6321783073A4A01D74CD2191 /* Pods-HabitApp.debug.xcconfig */,
-				A45779AF930EDC74EF87DE84 /* Pods-HabitApp.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		B06ABA5E6471348D7F14D91C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				027F7F076877B4FE9BD17E45 /* Pods_HabitApp.framework */,
+				890D4F7561669A19DF808029 /* Pods_HabitApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F63FA1623DDB37483F3730C2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D3F7A5C877E3083A7A7908C2 /* Pods-HabitApp.debug.xcconfig */,
+				4B5A029B6420D7EAB8E1F9B5 /* Pods-HabitApp.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,11 +173,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 070804A420F0516B00973005 /* Build configuration list for PBXNativeTarget "HabitApp" */;
 			buildPhases = (
-				F98E09834A09DFD9DC595FAE /* [CP] Check Pods Manifest.lock */,
+				3FEC0A06DA090CEB84E32016 /* [CP] Check Pods Manifest.lock */,
 				0708048C20F0516900973005 /* Sources */,
 				0708048D20F0516900973005 /* Frameworks */,
 				0708048E20F0516900973005 /* Resources */,
-				10D4B4934292AB0E53CBE5F2 /* [CP] Embed Pods Frameworks */,
+				4412012BD957569DB6241142 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -217,6 +229,7 @@
 				070804A020F0516B00973005 /* LaunchScreen.storyboard in Resources */,
 				0708049D20F0516B00973005 /* Assets.xcassets in Resources */,
 				07E45CE8213CAD6600B76885 /* PopupViewController.xib in Resources */,
+				074A2981214D5EB50056CD27 /* Onboarding.storyboard in Resources */,
 				07B6C73D211DEBB600D37A95 /* MonthHeaderView.xib in Resources */,
 				0708049B20F0516A00973005 /* Main.storyboard in Resources */,
 			);
@@ -225,49 +238,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		10D4B4934292AB0E53CBE5F2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-HabitApp/Pods-HabitApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
-				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
-				"${BUILT_PRODUCTS_DIR}/GSKStretchyHeaderView/GSKStretchyHeaderView.framework",
-				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
-				"${BUILT_PRODUCTS_DIR}/MGSegmentedProgressBar/MGSegmentedProgressBar.framework",
-				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
-				"${BUILT_PRODUCTS_DIR}/PINOperation/PINOperation.framework",
-				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
-				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
-				"${BUILT_PRODUCTS_DIR}/Pulley/Pulley.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Texture/AsyncDisplayKit.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GSKStretchyHeaderView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSegmentedProgressBar.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINOperation.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulley.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AsyncDisplayKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HabitApp/Pods-HabitApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F98E09834A09DFD9DC595FAE /* [CP] Check Pods Manifest.lock */ = {
+		3FEC0A06DA090CEB84E32016 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -285,6 +256,36 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4412012BD957569DB6241142 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HabitApp/Pods-HabitApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HabitApp/Pods-HabitApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -297,11 +298,14 @@
 				07E45CE7213CAD6600B76885 /* PopupViewController.swift in Sources */,
 				07AF3B2E20F9629A001F86B1 /* HabitsTableViewCell.swift in Sources */,
 				0708049420F0516900973005 /* AppDelegate.swift in Sources */,
+				074A297B21475E4A0056CD27 /* OnboardViewController.swift in Sources */,
+				074A297F214D54300056CD27 /* OnboardAddHabitViewController.swift in Sources */,
 				07B6C73F211DEC3B00D37A95 /* MonthHeaderView.swift in Sources */,
 				07E45CE0212BA2F800B76885 /* Colors.swift in Sources */,
 				07C08FB821266B06001822F1 /* DBManager.swift in Sources */,
 				07E45CEC213DFBF400B76885 /* HabitList.swift in Sources */,
 				07E45CE4213A2DD500B76885 /* HabitsTableView.swift in Sources */,
+				074A297D214D4F8A0056CD27 /* OnboardPageViewController.swift in Sources */,
 				070804AA20F0644200973005 /* Record.swift in Sources */,
 				07C08FBA2128D20D001822F1 /* ColorButton.swift in Sources */,
 				070804A820F053C400973005 /* Habit.swift in Sources */,
@@ -447,7 +451,7 @@
 		};
 		070804A520F0516B00973005 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6321783073A4A01D74CD2191 /* Pods-HabitApp.debug.xcconfig */;
+			baseConfigurationReference = D3F7A5C877E3083A7A7908C2 /* Pods-HabitApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -468,7 +472,7 @@
 		};
 		070804A620F0516B00973005 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A45779AF930EDC74EF87DE84 /* Pods-HabitApp.release.xcconfig */;
+			baseConfigurationReference = 4B5A029B6420D7EAB8E1F9B5 /* Pods-HabitApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

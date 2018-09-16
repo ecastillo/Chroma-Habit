@@ -10,6 +10,6 @@ import Foundation
 import JTAppleCalendar
 
 class MonthHeaderView: JTAppleCollectionReusableView {
-    @IBOutlet var title: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var monthStackView: UIStackView!
 }

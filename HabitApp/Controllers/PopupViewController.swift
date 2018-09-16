@@ -17,6 +17,7 @@ class PopupViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var colorsStackView: UIStackView!
+    @IBOutlet weak var colorsRow1: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,20 +29,13 @@ class PopupViewController: UIViewController {
         nameTextField.layer.borderColor = UIColor(hexString: "E1E2E7")?.cgColor
         nameTextField.layer.borderWidth = 1
         
-        var colorButtons:[UIButton] = []
-        
-        for (i, color) in COLORS.enumerated() {
-            let button = ColorButton(frame: CGRect.zero, mycolor: color)
-            button.addTarget(self, action: #selector(colorButtonTapped), for: .touchUpInside)
-            button.tag = i
-            colorButtons.append(button)
-            view.addSubview(button)
-            button.addConstraint(NSLayoutConstraint(item: button, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 20))
-            button.addConstraint(NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 20))
-        }
-        
-        for button in colorButtons {
-            colorsStackView.addArrangedSubview(button)
+        // TODO: Use collecion view instead of stack views?
+        for case let (i, stackView as UIStackView) in colorsStackView.arrangedSubviews.enumerated() {
+            for case let (j, colorButton as ColorButton) in stackView.arrangedSubviews.enumerated() {
+                colorButton.tag = 5*i + j
+                colorButton.color = COLORS[colorButton.tag]
+                colorButton.addTarget(self, action: #selector(colorButtonTapped), for: .touchUpInside)
+            }
         }
 
         if let habitToEdit = habit {
@@ -49,16 +43,15 @@ class PopupViewController: UIViewController {
             titleLabel.backgroundColor = UIColor(hexString: habitToEdit.color)
             nameTextField.text = habitToEdit.name
             selectedColor = UIColor(hexString: habitToEdit.color)
-            for button in colorsStackView.arrangedSubviews as! [ColorButton] {
-                print("habit to edit color: \(habitToEdit.color), compared to: \(COLORS[button.tag].hexValue())")
-                if habitToEdit.color == COLORS[button.tag].hexValue() {
-                    button.isSelected = true
+            for colorButton in colorsRow1.arrangedSubviews as! [ColorButton] {
+                if habitToEdit.color == COLORS[colorButton.tag].hexValue() {
+                    colorButton.isSelected = true
                 }
             }
         } else {
             selectedColor = COLORS[0]
             titleLabel.backgroundColor = COLORS[0]
-            (colorsStackView.arrangedSubviews[0] as! ColorButton).isSelected = true
+            ((colorsStackView.arrangedSubviews[0] as! UIStackView).arrangedSubviews[0] as! ColorButton).isSelected = true
         }
     }
     
@@ -66,9 +59,11 @@ class PopupViewController: UIViewController {
         sender.isSelected = true
         selectedColor = COLORS[sender.tag]
         
-        for button in colorsStackView.arrangedSubviews as! [UIButton] {
-            if sender != button {
-                button.isSelected = false
+        for stackView in colorsStackView.arrangedSubviews as! [UIStackView] {
+            for colorButton in stackView.arrangedSubviews as! [ColorButton] {
+                if sender != colorButton {
+                    colorButton.isSelected = false
+                }
             }
         }
         

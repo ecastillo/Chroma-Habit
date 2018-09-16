@@ -8,7 +8,6 @@
 
 import UIKit
 import JTAppleCalendar
-import MGSegmentedProgressBar
 import ChameleonFramework
 import RealmSwift
 

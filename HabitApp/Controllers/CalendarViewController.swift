@@ -9,9 +9,8 @@
 import UIKit
 import JTAppleCalendar
 import RealmSwift
-import Pulley
-import MGSegmentedProgressBar
 import PopupDialog
+import Onboard
 
 class CalendarViewController: UIViewController {
 
@@ -26,6 +25,8 @@ class CalendarViewController: UIViewController {
     var habits: Results<Habit>!
     var habitColors = [String: UIColor]()
     var selectedHabit: Habit?
+    
+    var onboardingVC = OnboardingViewController()
     
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var dateLabel: UILabel!
@@ -110,8 +111,8 @@ class CalendarViewController: UIViewController {
         
         oldContentOffset = scrollView.contentOffset
         
-        if scrollView.contentOffset.y > 25 {
-            dateViewTopConstraint.constant = scrollView.contentOffset.y
+        if scrollView.contentOffset.y + view.safeAreaInsets.top > 25 {
+            dateViewTopConstraint.constant = scrollView.contentOffset.y + view.safeAreaInsets.top
         } else {
             dateViewTopConstraint.constant = 25
         }
@@ -134,7 +135,11 @@ class CalendarViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if !isInEditMode {
-            tableView.contentInset = UIEdgeInsets(top: calendarView.frame.height-200, left: 0, bottom: 0, right: 0)
+            if tableView.contentSize.height < 250 {
+                tableView.contentInset = UIEdgeInsets(top: calendarView.frame.height-tableView.contentSize.height-view.safeAreaInsets.bottom-25, left: 0, bottom: 0, right: 0)
+            } else {
+                tableView.contentInset = UIEdgeInsets(top: calendarView.frame.height-250, left: 0, bottom: 0, right: 0)
+            }
         }
         
         statusBarBackground.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y, width: view.frame.width, height: view.safeAreaInsets.top)
@@ -271,16 +276,16 @@ extension CalendarViewController: JTAppleCalendarViewDelegate, JTAppleCalendarVi
         }
     }
     
-    func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
-        // This function should have the same code as the cellForItemAt function
-        configureCell(cell: cell, cellState: cellState)
-    }
-    
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let calendarCell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "calendarCell", for: indexPath) as! CalendarCell
         self.calendar(calendar, willDisplay: calendarCell, forItemAt: date, cellState: cellState, indexPath: indexPath)
         
         return calendarCell
+    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
+        // This function should have the same code as the cellForItemAt function
+        configureCell(cell: cell, cellState: cellState)
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
@@ -310,8 +315,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate, JTAppleCalendarVi
         let date = range.start
         dateFormatter.dateFormat = "MMM"
         let dayOfWeek = Calendar(identifier: .gregorian).component(.weekday, from: range.start)
-        for (index, monthLabel) in headerView.monthStackView.arrangedSubviews.enumerated() {
-            let monthLabel = monthLabel as! UILabel
+        for case let (index, monthLabel as UILabel) in headerView.monthStackView.arrangedSubviews.enumerated() {
             if index == dayOfWeek-1 {
                 monthLabel.alpha = 1
                 monthLabel.text = dateFormatter.string(from: date)
@@ -319,13 +323,24 @@ extension CalendarViewController: JTAppleCalendarViewDelegate, JTAppleCalendarVi
                 monthLabel.alpha = 0
             }
         }
-
+        
+        let month = Calendar(identifier: .gregorian).component(.month, from: range.start)
+        if month == 1 {
+            headerView.frame.size.height = 59
+            headerView.yearLabel.isHidden = false
+            headerView.yearLabel.text = String(Calendar(identifier: .gregorian).component(.year, from: range.start))
+        } else {
+            headerView.frame.size.height = 40
+            headerView.yearLabel.isHidden = true
+        }
+    
         return headerView
     }
     
     func calendarSizeForMonths(_ calendar: JTAppleCalendarView?) -> MonthSize? {
-        return MonthSize(defaultSize: 40)
+        return MonthSize(defaultSize: 40, months: [59 : [.jan]], dates: nil)
     }
+
 }
 
 
@@ -347,14 +362,18 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         let habitCell = tableView.dequeueReusableCell(withIdentifier: "habitCell", for: indexPath) as! HabitsTableViewCell
         
         if let habit = habits?[indexPath.row] {
+            CATransaction.begin()
+            CATransaction.setDisableActions(true)
+            
             habitCell.titleLabel.text = habit.name
-            habitCell.reorderBackgroundView.backgroundColor = UIColor(hexString: habit.color)
             habitCell.reorderBackgroundView.color = UIColor(hexString: habit.color)!
             habitCell.highlight.backgroundColor = UIColor(hexString: habit.color)?.cgColor
             habitCell.tintColor = UIColor(hexString: habit.color)
             habitCell.checkmarkView.layer.borderColor = UIColor(hexString: habit.color)?.cgColor
             
-            habitCell.done = (DBManager.shared.getRecord(for: habit, on: selectedDate) != nil)
+            habitCell.setDone((DBManager.shared.getRecord(for: habit, on: selectedDate) != nil), animated: false)
+            
+            CATransaction.commit()
         }
         return habitCell
     }
@@ -364,7 +383,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         selectedHabit = habits?[indexPath.row]
         
         if !tableView.isEditing {
-            selectedCell.done = !selectedCell.done
+            selectedCell.setDone(!selectedCell.done, animated: true)
             
             if selectedCell.done {
                 DBManager.shared.createRecord(habit: selectedHabit!, date: selectedDate)

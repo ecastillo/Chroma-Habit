@@ -28,6 +28,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        if !UserDefaults.standard.bool(forKey: "completedOnboarding") {
+            // Trick to present onboarding as a modal without the initial screen flashing on load
+            // https://stackoverflow.com/questions/26355847/ios-present-modal-view-controller-on-startup-without-flash
+            if let onboardingViewController = UIStoryboard(name: "Onboarding", bundle: nil).instantiateInitialViewController() as? OnboardPageViewController
+            {
+                let launch = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()!
+                launch.view.frame = onboardingViewController.view.bounds
+                launch.view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+                window?.makeKeyAndVisible()
+                window?.addSubview(launch.view)
+                
+                //Using DispatchQueue to prevent "Unbalanced calls to begin/end appearance transitions"
+                DispatchQueue.global().async {
+                    // Bounce back to the main thread to update the UI
+                    DispatchQueue.main.async {
+                        self.window?.rootViewController?.present(onboardingViewController, animated: false, completion: {
+                            
+                            UIView.animate(withDuration: 0, animations: {
+                                launch.view.alpha = 0
+                            }, completion: { (_) in
+                                launch.view.removeFromSuperview()
+                                let test = onboardingViewController.orderedViewControllers.first as! OnboardViewController
+                                test.startAnimation()
+                            })
+                        })
+                    }
+                }
+            }
+        }
+        
         return true
     }
 
