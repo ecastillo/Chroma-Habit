@@ -29,7 +29,6 @@
 		07E45CE7213CAD6600B76885 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CE5213CAD6600B76885 /* PopupViewController.swift */; };
 		07E45CE8213CAD6600B76885 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E45CE6213CAD6600B76885 /* PopupViewController.xib */; };
 		07E45CEA213DBCC500B76885 /* HabitCellReorderBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CE9213DBCC500B76885 /* HabitCellReorderBackgroundView.swift */; };
-		07E45CEC213DFBF400B76885 /* HabitList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CEB213DFBF400B76885 /* HabitList.swift */; };
 		49E6F184217A77C8530DC0A0 /* Pods_Chroma_Habit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B9774B50144D217D35EB02 /* Pods_Chroma_Habit.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +58,6 @@
 		07E45CE5213CAD6600B76885 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		07E45CE6213CAD6600B76885 /* PopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		07E45CE9213DBCC500B76885 /* HabitCellReorderBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCellReorderBackgroundView.swift; sourceTree = "<group>"; };
-		07E45CEB213DFBF400B76885 /* HabitList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitList.swift; sourceTree = "<group>"; };
 		82B9774B50144D217D35EB02 /* Pods_Chroma_Habit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chroma_Habit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7D58C3056E44BD684A0E818 /* Pods-Chroma Habit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chroma Habit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chroma Habit/Pods-Chroma Habit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				07C08FB721266B06001822F1 /* DBManager.swift */,
-				07E45CEB213DFBF400B76885 /* HabitList.swift */,
 				070804A720F053C400973005 /* Habit.swift */,
 				070804A920F0644200973005 /* Record.swift */,
 			);
@@ -303,7 +300,6 @@
 				07B6C73F211DEC3B00D37A95 /* MonthHeaderView.swift in Sources */,
 				07E45CE0212BA2F800B76885 /* Colors.swift in Sources */,
 				07C08FB821266B06001822F1 /* DBManager.swift in Sources */,
-				07E45CEC213DFBF400B76885 /* HabitList.swift in Sources */,
 				07E45CE4213A2DD500B76885 /* HabitsTableView.swift in Sources */,
 				074A297D214D4F8A0056CD27 /* OnboardPageViewController.swift in Sources */,
 				070804AA20F0644200973005 /* Record.swift in Sources */,

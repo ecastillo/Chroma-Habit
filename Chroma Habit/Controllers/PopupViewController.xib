@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopupViewController" customModule="HabitApp" customModuleProvider="target">
+            <connections>
+                <outlet property="colorsRow1" destination="obL-qp-ksB" id="Axx-6w-UYO"/>
+                <outlet property="colorsStackView" destination="Xya-YE-uuA" id="vJv-fk-5zU"/>
+                <outlet property="nameTextField" destination="MLY-yj-kw1" id="yTI-jD-9aC"/>
+                <outlet property="titleLabel" destination="TZG-5K-LXb" id="n5I-w3-s4D"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="295"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRe-HE-3Er">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="295"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Habit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZG-5K-LXb">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <color key="backgroundColor" red="0.59607843140000005" green="0.42352941179999998" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="8aS-6R-N1t"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="MLY-yj-kw1">
+                            <rect key="frame" x="30" y="68" width="315" height="47"/>
+                            <color key="backgroundColor" red="0.94117647059999998" green="0.94901960780000005" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="47" id="sRj-ZD-SAL"/>
+                            </constraints>
+                            <color key="textColor" red="0.41176470590000003" green="0.45882352939999999" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                        </textField>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Xya-YE-uuA">
+                            <rect key="frame" x="30" y="137" width="315" height="139"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="obL-qp-ksB">
+                                    <rect key="frame" x="0.0" y="0.0" width="315" height="46.5"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHV-v2-wAv" customClass="ColorButton" customModule="HabitApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="8" width="30" height="30"/>
+                                            <state key="normal" title="C"/>
+                                        </button>
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s93-sT-gKM" customClass="ColorButton" customModule="HabitApp" customModuleProvider="target">
+                                            <rect key="frame" x="71.5" y="8" width="30" height="30"/>
+                                            <state key="normal" title="C"/>
+                                        </button>
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tz1-AD-4mW" customClass="ColorButton" customModule="HabitApp" customModuleProvider="target">
+                                            <rect key="frame" x="142.5" y="8" width="30" height="30"/>
+                                            <state key="normal" title="C"/>
+                                        </button>
+                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gy-TW-PdJ" customClass="ColorButton" customModule="HabitApp" customModuleProvider="target">
+                                            <rect key="frame" x="214" y="8" width="30" height="30"/>
+                                            <state key="normal" title="C"/>
+                                        </button>
+                                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ll4-HK-Zuz" customClass="ColorButton" customModule="HabitApp" customModuleProvider="target">
+                                            <rect key="frame" x="285" y="8" width="30" height="30"/>
+                                            <state key="normal" title="C"/>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mbw-IF-gTt">
+                                    <rect key="frame" x="0.0" y="46.5" width="315" height="46"/>
+                                    <subviews>
+                                        <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BUa-mQ-bcx" customClass="ColorButton" customModule="HabitApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="8" width="30" height="30"/>
+                                            <state key="normal" title="C"/>
+                                        </button>
+                                        <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rln-TS-vps" customClass="ColorButton" customModule="HabitApp" customModuleProvider="target">
+                                            <rect key="frame" x="71.5" y="8" width="30" height="30"/>
+                                            <state key="normal" title="C"/>
+                                        </button>
+                                        <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFt-gk-dTZ" customClass="ColorButton" customModule="HabitApp" customModuleProvider="target">
+                                            <rect key="frame" x="142.5" y="8" width="30" height="30"/>
+                                            <state key="normal" title="C"/>
+                                        </button>
+                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r39-TG-Isj" customClass="ColorButton" customModule="HabitApp" customModuleProvider="target">
+                                            <rect key="frame" x="214" y="8" width="30" height="30"/>
+                                            <state key="normal" title="C"/>
+                                        </button>
+                                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73E-Na-CV9" customClass="ColorButton" customModule="HabitApp" customModuleProvider="target">
+                                            <rect key="frame" x="285" y="8" width="30" height="30"/>
+                                            <state key="normal" title="C"/>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="urZ-C1-7HF">
+                                    <rect key="frame" x="0.0" y="92.5" width="315" height="46.5"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBE-Xj-VFH" customClass="ColorButton" customModule="HabitApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="8.5" width="30" height="30"/>
+                                            <state key="normal" title="C"/>
+                                        </button>
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2DZ-gB-Isz" customClass="ColorButton" customModule="HabitApp" customModuleProvider="target">
+                                            <rect key="frame" x="71.5" y="8.5" width="30" height="30"/>
+                                            <state key="normal" title="C"/>
+                                        </button>
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTJ-kR-U8k" customClass="ColorButton" customModule="HabitApp" customModuleProvider="target">
+                                            <rect key="frame" x="142.5" y="8.5" width="30" height="30"/>
+                                            <state key="normal" title="C"/>
+                                        </button>
+                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0op-TI-RbW" customClass="ColorButton" customModule="HabitApp" customModuleProvider="target">
+                                            <rect key="frame" x="214" y="8.5" width="30" height="30"/>
+                                            <state key="normal" title="C"/>
+                                        </button>
+                                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2A-Kq-rtp" customClass="ColorButton" customModule="HabitApp" customModuleProvider="target">
+                                            <rect key="frame" x="285" y="8.5" width="30" height="30"/>
+                                            <state key="normal" title="C"/>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="obL-qp-ksB" secondAttribute="trailing" id="9SH-0z-uFp"/>
+                                <constraint firstAttribute="trailing" secondItem="urZ-C1-7HF" secondAttribute="trailing" id="H5e-5o-EzT"/>
+                                <constraint firstItem="urZ-C1-7HF" firstAttribute="leading" secondItem="Xya-YE-uuA" secondAttribute="leading" id="Hjt-uT-wql"/>
+                                <constraint firstItem="obL-qp-ksB" firstAttribute="leading" secondItem="Xya-YE-uuA" secondAttribute="leading" id="e4s-lZ-iOr"/>
+                                <constraint firstAttribute="trailing" secondItem="mbw-IF-gTt" secondAttribute="trailing" id="fTk-a9-TZU"/>
+                                <constraint firstItem="mbw-IF-gTt" firstAttribute="leading" secondItem="Xya-YE-uuA" secondAttribute="leading" id="gKA-Oh-fVa"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="TZG-5K-LXb" firstAttribute="leading" secondItem="XRe-HE-3Er" secondAttribute="leading" id="1pH-3Z-jRL"/>
+                        <constraint firstItem="TZG-5K-LXb" firstAttribute="leading" secondItem="XRe-HE-3Er" secondAttribute="leading" id="Ara-J1-gei"/>
+                        <constraint firstItem="Xya-YE-uuA" firstAttribute="top" secondItem="MLY-yj-kw1" secondAttribute="bottom" constant="22" id="B0X-47-5vE"/>
+                        <constraint firstItem="MLY-yj-kw1" firstAttribute="leading" secondItem="XRe-HE-3Er" secondAttribute="leading" constant="30" id="GxC-Vp-Kc4"/>
+                        <constraint firstAttribute="height" constant="295" id="HWC-TK-vbD"/>
+                        <constraint firstItem="Xya-YE-uuA" firstAttribute="leading" secondItem="XRe-HE-3Er" secondAttribute="leading" constant="30" id="KGw-gn-tSf"/>
+                        <constraint firstItem="TZG-5K-LXb" firstAttribute="top" secondItem="XRe-HE-3Er" secondAttribute="top" id="QFG-fE-wub"/>
+                        <constraint firstAttribute="trailing" secondItem="TZG-5K-LXb" secondAttribute="trailing" id="SYk-VA-LXE"/>
+                        <constraint firstAttribute="trailing" secondItem="MLY-yj-kw1" secondAttribute="trailing" constant="30" id="V25-Nm-qL4"/>
+                        <constraint firstItem="MLY-yj-kw1" firstAttribute="top" secondItem="TZG-5K-LXb" secondAttribute="bottom" constant="18" id="Yvu-cY-t1J"/>
+                        <constraint firstAttribute="trailing" secondItem="Xya-YE-uuA" secondAttribute="trailing" constant="30" id="uyo-Rb-U8L"/>
+                        <constraint firstAttribute="bottom" secondItem="Xya-YE-uuA" secondAttribute="bottom" constant="19" id="y4f-OZ-5E0"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="XRe-HE-3Er" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="IvH-gc-gqp"/>
+                <constraint firstItem="XRe-HE-3Er" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="MLs-Jk-RCv"/>
+                <constraint firstItem="XRe-HE-3Er" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="UJF-N2-yCu"/>
+                <constraint firstItem="XRe-HE-3Er" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dXc-Vv-P5S"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="133.5"/>
+        </view>
+    </objects>
+</document>
