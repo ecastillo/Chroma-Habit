@@ -81,8 +81,8 @@ class OnboardViewController: UIViewController {
     }
     
     func startAnimation() {
-        let animationOptions: UIViewAnimationOptions = .curveEaseInOut
-        let keyframeAnimationOptions: UIViewKeyframeAnimationOptions = UIViewKeyframeAnimationOptions(rawValue: UIViewAnimationOptions.curveEaseInOut.rawValue)
+        //let animationOptions: UIView.AnimationOptions = .curveEaseInOut
+        let keyframeAnimationOptions: UIView.KeyframeAnimationOptions = UIView.KeyframeAnimationOptions(rawValue: UIView.AnimationOptions.curveEaseInOut.rawValue)
         
         UIView.animateKeyframes(withDuration: 4, delay: 0, options: [keyframeAnimationOptions, .autoreverse, .repeat], animations: {
             UIView.addKeyframe(withRelativeStartTime: 1/5, relativeDuration: 1/4, animations: {

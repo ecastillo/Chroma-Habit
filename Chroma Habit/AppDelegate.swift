@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         print(Realm.Configuration.defaultConfiguration.fileURL ?? "")
@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             {
                 let launch = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()!
                 launch.view.frame = onboardingViewController.view.bounds
-                launch.view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+                launch.view.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
                 window?.makeKeyAndVisible()
                 window?.addSubview(launch.view)
                 

@@ -71,7 +71,7 @@ class CalendarViewController: UIViewController {
         calendarView.scrollingMode = .none
         calendarView.cellSize = calendarView.frame.width/7
         calendarView.register(UINib(nibName: "MonthHeaderView", bundle: Bundle.main),
-                          forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
+                          forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                           withReuseIdentifier: "MonthHeaderView")
         
         //calendarView.scrollToHeaderForDate(todaysDate)
@@ -427,7 +427,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
             
             let buttonThree = DefaultButton(title: "DELETE", dismissOnTap: true) {
                 let alert = UIAlertController(title: "Delete \((self.selectedHabit?.name)!)?", message: "", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
                 let action = UIAlertAction(title: "Delete", style: .default) { (action) in
                     DBManager.shared.deleteHabit(habit: self.selectedHabit!)
                     self.userEditedAHabit()
@@ -455,7 +455,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         return true
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .none
     }
     
