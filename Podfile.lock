@@ -2,16 +2,16 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - DynamicBlurView (2.0.2)
-  - JTAppleCalendar (7.1.5)
+  - DynamicBlurView (3.0.1)
+  - JTAppleCalendar (7.1.6)
   - Onboard (2.3.3)
-  - PopupDialog (0.8.1):
-    - DynamicBlurView (~> 2.0)
-  - Realm (3.8.0):
-    - Realm/Headers (= 3.8.0)
-  - Realm/Headers (3.8.0)
-  - RealmSwift (3.8.0):
-    - Realm (= 3.8.0)
+  - PopupDialog (0.9.0):
+    - DynamicBlurView (~> 3.0.1)
+  - Realm (3.10.0):
+    - Realm/Headers (= 3.10.0)
+  - Realm/Headers (3.10.0)
+  - RealmSwift (3.10.0):
+    - Realm (= 3.10.0)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
@@ -40,12 +40,12 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  DynamicBlurView: aa6db4defc6e537eb86fc5e58dd3991666178399
-  JTAppleCalendar: 2d4f974f9f3c8b4964d51ca1f6e004883c031fbe
+  DynamicBlurView: b1df5415f9bd31897549e5d7077e5ec120a4d636
+  JTAppleCalendar: abb30678f42a4ef8a340a932b1dcb8c85a33dac2
   Onboard: 4d6e943e20bdd6bc229df967a347dd7514bc2a6f
-  PopupDialog: 3d4e8e0795c3a614f407d730986c9b9af9781123
-  Realm: 3fdae59de78838064e9f77638d7cdb7b8cff9dc8
-  RealmSwift: c990518b800e106d1f77099d3a4648c3b100337d
+  PopupDialog: 953c9502f0aa0adcead7d5eb3e9a4d46a11a0093
+  Realm: 85ab9e4f779d66f6e9ffeb118dc25b7f130c96ac
+  RealmSwift: 69121c8b86d0ae005fb779efdb10e606732e1c74
 
 PODFILE CHECKSUM: 4f07041fe05feeacf4baf3a90aaa68f8bf47f461
 
