@@ -141,7 +141,7 @@ class CalendarViewController: UIViewController {
             let a = (2/3)*view.frame.height
             if tableView.contentSize.height < (1/3)*view.frame.height {
                 tableView.contentInset = UIEdgeInsets(top: a, left: 0, bottom: 0, right: 0)
-                print("contentSize.height in viewDidLayoutSubviews: \(self.tableView.contentSize.height)")
+                //print("contentSize.height in viewDidLayoutSubviews: \(self.tableView.contentSize.height)")
             } else {
                 tableView.contentInset = UIEdgeInsets(top: a, left: 0, bottom: 0, right: 0)
             }
@@ -265,7 +265,6 @@ extension CalendarViewController: JTAppleCalendarViewDelegate, JTAppleCalendarVi
         calendarCell.records = completedRecords
         
         if completedRecords.count > 0 {
-            print("has completed records")
             calendarCell.progressStackView.isHidden = false
             calendarCell.progressStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
             
