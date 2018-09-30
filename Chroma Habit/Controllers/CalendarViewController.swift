@@ -245,7 +245,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate, JTAppleCalendarVi
         dateFormatter.dateFormat = "yyyy MM dd"
         let todaysDateString = dateFormatter.string(from: todaysDate)
         let cellDateString = dateFormatter.string(from: cellState.date)
-        calendarCell.bgView.backgroundColor = (todaysDateString >= cellDateString) ? UIColor.Theme.mediumGray : UIColor.Theme.lightGray
+        calendarCell.backgroundColor = (todaysDateString >= cellDateString) ? UIColor.Theme.mediumGray : UIColor.Theme.lightGray
         
 //        //if Calendar.current.compare(cellState.date, to: todaysDate, toGranularity: .day) == .orderedSame {
 //        if todaysDateString == cellDateString {
@@ -255,7 +255,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate, JTAppleCalendarVi
 //        }
 
         calendarCell.isHidden = cellState.dateBelongsTo != .thisMonth
-        calendarCell.dateLabel.text = cellState.text
+        calendarCell.dateText.string = cellState.text
         
         let dayOfWeek = Calendar(identifier: .gregorian).component(.weekday, from: cellState.date)
         calendarCell.border.isHidden = dayOfWeek == 7
@@ -265,31 +265,37 @@ extension CalendarViewController: JTAppleCalendarViewDelegate, JTAppleCalendarVi
         calendarCell.records = completedRecords
         
         if completedRecords.count > 0 {
-            calendarCell.progressStackView.isHidden = false
-            calendarCell.progressStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
+            calendarCell.progressContainerLayer.isHidden = false
+            calendarCell.progressContainerLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
             
-            for record in completedRecords {
-                let recordProgress = UIView()
-                recordProgress.backgroundColor = habitColors[(record.habit?.id)!]
-                calendarCell.progressStackView.addArrangedSubview(recordProgress)
+            let sliceHeight = calendarCell.layer.bounds.height/CGFloat(completedRecords.count)
+            
+            for (i, record) in completedRecords.enumerated().reversed() {
+                let slice = CAShapeLayer()
+                slice.frame = calendarCell.layer.bounds
+                slice.frame.size.height = sliceHeight*CGFloat(i+1)
+                slice.backgroundColor = habitColors[(record.habit?.id)!]?.cgColor
+                slice.isOpaque = true
+                slice.drawsAsynchronously = true
+                calendarCell.progressContainerLayer.addSublayer(slice)
             }
             
+            calendarCell.dateText.foregroundColor = UIColor.Theme.white.cgColor
+            
             if cellState.isSelected {
-                calendarCell.dateLabel.textColor = UIColor.Theme.white
-                calendarCell.dateView.backgroundColor = UIColor.Theme.black
+                calendarCell.dateBg.backgroundColor = UIColor.Theme.black.cgColor
             } else {
-                calendarCell.dateLabel.textColor = UIColor.Theme.white
-                calendarCell.dateView.backgroundColor = UIColor.Theme.clear
+                calendarCell.dateBg.backgroundColor = UIColor.Theme.clear.cgColor
             }
         } else {
-            calendarCell.progressStackView.isHidden = true
-            
+            calendarCell.progressContainerLayer.isHidden = true
+
             if cellState.isSelected {
-                calendarCell.dateLabel.textColor = UIColor.Theme.white
-                calendarCell.dateView.backgroundColor = UIColor.Theme.black
+                calendarCell.dateText.foregroundColor = UIColor.Theme.white.cgColor
+                calendarCell.dateBg.backgroundColor = UIColor.Theme.black.cgColor
             } else {
-                calendarCell.dateLabel.textColor = UIColor.Theme.darkGray
-                calendarCell.dateView.backgroundColor = UIColor.Theme.clear
+                calendarCell.dateText.foregroundColor = UIColor.Theme.darkGray.cgColor
+                calendarCell.dateBg.backgroundColor = UIColor.Theme.clear.cgColor
             }
         }
     }

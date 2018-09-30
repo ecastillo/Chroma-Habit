@@ -13,25 +13,36 @@ import RealmSwift
 
 class CalendarCell: JTAppleCell {
     var records: Results<Record>?
-    
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var dateView: UIView!
-    @IBOutlet weak var selectedView: UIView!
-    @IBOutlet weak var bgView: UIView!
-    @IBOutlet weak var progressStackView: UIStackView!
-    @IBOutlet weak var progressStackViewContainer: UIView!
-    
+
+    var progressContainerLayer = CAShapeLayer()
     var border = CALayer()
+    let dateText = CATextLayer()
+    let dateBg = CAShapeLayer()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        progressContainerLayer.isOpaque = true
+        progressContainerLayer.drawsAsynchronously = true
+        
+        layer.addSublayer(progressContainerLayer)
         layer.addSublayer(border)
+        layer.addSublayer(dateBg)
+        dateBg.addSublayer(dateText)
     }
     
     override func layoutSubviews() {
+        progressContainerLayer.frame = layer.bounds
+        progressContainerLayer.zPosition = -1
+        
         border.frame = CGRect(x: frame.width - 2, y: 0, width: 2, height: frame.height)
         border.backgroundColor = UIColor.Theme.white.cgColor
+        
+        dateText.frame = CGRect(origin: CGPoint(x: 3, y: 0), size: CGSize(width: 20, height: dateText.preferredFrameSize().height))
+        dateText.fontSize = 17
+        dateText.contentsScale = UIScreen.main.scale
+        
+        dateBg.frame = CGRect(x: 0, y: bounds.height - dateText.preferredFrameSize().height, width: 26, height: dateText.preferredFrameSize().height)
+        dateBg.masksToBounds = true
     }
-
 }
