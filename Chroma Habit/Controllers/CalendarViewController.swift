@@ -242,61 +242,55 @@ extension CalendarViewController: JTAppleCalendarViewDelegate, JTAppleCalendarVi
     func configureCell(cell: JTAppleCell, cellState: CellState) {
         let calendarCell = cell as! CalendarCell
         
-        dateFormatter.dateFormat = "yyyy MM dd"
-        let todaysDateString = dateFormatter.string(from: todaysDate)
-        let cellDateString = dateFormatter.string(from: cellState.date)
-        calendarCell.backgroundColor = (todaysDateString >= cellDateString) ? UIColor.Theme.mediumGray : UIColor.Theme.lightGray
+        calendarCell.records = DBManager.shared.getRecords(on: cellState.date).sorted(byKeyPath: "habit.order")
         
-//        //if Calendar.current.compare(cellState.date, to: todaysDate, toGranularity: .day) == .orderedSame {
-//        if todaysDateString == cellDateString {
-//            calendarCell.backgroundColor = red
-//        } else {
-//            calendarCell.backgroundColor = white
-//        }
-
+        configureCellBackground(cell: calendarCell, cellState: cellState)
+        configureCellDate(cell: calendarCell, cellState: cellState)
+        configureCellHabits(cell: calendarCell, cellState: cellState)
+        
         calendarCell.isHidden = cellState.dateBelongsTo != .thisMonth
-        calendarCell.dateText.string = cellState.text
         
         let dayOfWeek = Calendar(identifier: .gregorian).component(.weekday, from: cellState.date)
         calendarCell.border.isHidden = dayOfWeek == 7
+    }
     
-        let completedRecords = DBManager.shared.getRecords(on: cellState.date).sorted(byKeyPath: "habit.order")
+    func configureCellBackground(cell: CalendarCell, cellState: CellState) {
+        cell.backgroundColor = (Calendar.current.compare(cellState.date, to: todaysDate, toGranularity: .day) == .orderedAscending) ? UIColor.Theme.mediumGray : UIColor.Theme.lightGray
+    }
+    
+    func configureCellDate(cell: CalendarCell, cellState: CellState) {
+        cell.dateText.string = cellState.text
+        if cellState.isSelected {
+            cell.dateText.foregroundColor = UIColor.Theme.white.cgColor
+            cell.dateBg.backgroundColor = UIColor.Theme.black.cgColor
+        } else {
+            cell.dateBg.backgroundColor = UIColor.Theme.clear.cgColor
+            if cell.records?.count ?? 0 > 0 {
+                cell.dateText.foregroundColor = UIColor.Theme.white.cgColor
+            } else {
+                cell.dateText.foregroundColor = UIColor.Theme.darkGray.cgColor
+            }
+        }
+    }
+    
+    func configureCellHabits(cell: CalendarCell, cellState: CellState) {
+        guard let records = cell.records else { fatalError("Couldn't get records for \(cellState.date)") }
         
-        calendarCell.records = completedRecords
-        
-        if completedRecords.count > 0 {
-            calendarCell.progressContainerLayer.isHidden = false
-            calendarCell.progressContainerLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
+        if records.count > 0 {
+            cell.progressContainerLayer.isHidden = false
+            cell.progressContainerLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
             
-            let sliceHeight = calendarCell.layer.bounds.height/CGFloat(completedRecords.count)
+            let sliceHeight = cell.layer.bounds.height/CGFloat(records.count)
             
-            for (i, record) in completedRecords.enumerated().reversed() {
+            for (i, record) in records.enumerated().reversed() {
                 let slice = CAShapeLayer()
-                slice.frame = calendarCell.layer.bounds
+                slice.frame = cell.layer.bounds
                 slice.frame.size.height = sliceHeight*CGFloat(i+1)
                 slice.backgroundColor = habitColors[(record.habit?.id)!]?.cgColor
-                slice.isOpaque = true
-                slice.drawsAsynchronously = true
-                calendarCell.progressContainerLayer.addSublayer(slice)
-            }
-            
-            calendarCell.dateText.foregroundColor = UIColor.Theme.white.cgColor
-            
-            if cellState.isSelected {
-                calendarCell.dateBg.backgroundColor = UIColor.Theme.black.cgColor
-            } else {
-                calendarCell.dateBg.backgroundColor = UIColor.Theme.clear.cgColor
+                cell.progressContainerLayer.addSublayer(slice)
             }
         } else {
-            calendarCell.progressContainerLayer.isHidden = true
-
-            if cellState.isSelected {
-                calendarCell.dateText.foregroundColor = UIColor.Theme.white.cgColor
-                calendarCell.dateBg.backgroundColor = UIColor.Theme.black.cgColor
-            } else {
-                calendarCell.dateText.foregroundColor = UIColor.Theme.darkGray.cgColor
-                calendarCell.dateBg.backgroundColor = UIColor.Theme.clear.cgColor
-            }
+            cell.progressContainerLayer.isHidden = true
         }
     }
     
@@ -308,7 +302,6 @@ extension CalendarViewController: JTAppleCalendarViewDelegate, JTAppleCalendarVi
     }
     
     func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
-        // This function should have the same code as the cellForItemAt function
         configureCell(cell: cell, cellState: cellState)
     }
     

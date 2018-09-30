@@ -22,9 +22,6 @@ class CalendarCell: JTAppleCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        progressContainerLayer.isOpaque = true
-        progressContainerLayer.drawsAsynchronously = true
-        
         layer.addSublayer(progressContainerLayer)
         layer.addSublayer(border)
         layer.addSublayer(dateBg)
@@ -40,7 +37,7 @@ class CalendarCell: JTAppleCell {
         
         dateText.frame = CGRect(origin: CGPoint(x: 3, y: 0), size: CGSize(width: 20, height: dateText.preferredFrameSize().height))
         dateText.fontSize = 17
-        dateText.contentsScale = UIScreen.main.scale
+        dateText.contentsScale = UIScreen.main.scale //Prevents blurry text
         
         dateBg.frame = CGRect(x: 0, y: bounds.height - dateText.preferredFrameSize().height, width: 26, height: dateText.preferredFrameSize().height)
         dateBg.masksToBounds = true
