@@ -19,6 +19,19 @@
 		074A297F214D54300056CD27 /* OnboardAddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074A297E214D54300056CD27 /* OnboardAddHabitViewController.swift */; };
 		074A2981214D5EB50056CD27 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 074A2980214D5EB50056CD27 /* Onboarding.storyboard */; };
 		07976D06215DC2CA005B9F62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07976D05215DC2CA005B9F62 /* Assets.xcassets */; };
+		07976D0D21606C79005B9F62 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07976D0B21606C79005B9F62 /* Interface.storyboard */; };
+		07976D0F21606C7B005B9F62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07976D0E21606C7B005B9F62 /* Assets.xcassets */; };
+		07976D1621606C7B005B9F62 /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 07976D1521606C7B005B9F62 /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		07976D1B21606C7B005B9F62 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07976D1A21606C7B005B9F62 /* InterfaceController.swift */; };
+		07976D1D21606C7B005B9F62 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07976D1C21606C7B005B9F62 /* ExtensionDelegate.swift */; };
+		07976D1F21606C7B005B9F62 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07976D1E21606C7B005B9F62 /* NotificationController.swift */; };
+		07976D2121606C7B005B9F62 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07976D2021606C7B005B9F62 /* ComplicationController.swift */; };
+		07976D2321606C7B005B9F62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07976D2221606C7B005B9F62 /* Assets.xcassets */; };
+		07976D2821606C7B005B9F62 /* Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 07976D0921606C79005B9F62 /* Watch.app */; };
+		07976D322160736F005B9F62 /* HabitRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07976D312160736F005B9F62 /* HabitRowController.swift */; };
+		07976D5421617745005B9F62 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CDF212BA2F800B76885 /* Colors.swift */; };
+		07976D562161B134005B9F62 /* WatchHabit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07976D552161B134005B9F62 /* WatchHabit.swift */; };
+		07976D572161B1AB005B9F62 /* WatchHabit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07976D552161B134005B9F62 /* WatchHabit.swift */; };
 		07AF3B2E20F9629A001F86B1 /* HabitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF3B2D20F9629A001F86B1 /* HabitsTableViewCell.swift */; };
 		07B6C73D211DEBB600D37A95 /* MonthHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07B6C73C211DEBB600D37A95 /* MonthHeaderView.xib */; };
 		07B6C73F211DEC3B00D37A95 /* MonthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6C73E211DEC3B00D37A95 /* MonthHeaderView.swift */; };
@@ -29,11 +42,63 @@
 		07E45CE7213CAD6600B76885 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CE5213CAD6600B76885 /* PopupViewController.swift */; };
 		07E45CE8213CAD6600B76885 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E45CE6213CAD6600B76885 /* PopupViewController.xib */; };
 		07E45CEA213DBCC500B76885 /* HabitCellReorderBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CE9213DBCC500B76885 /* HabitCellReorderBackgroundView.swift */; };
-		49E6F184217A77C8530DC0A0 /* Pods_Chroma_Habit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82B9774B50144D217D35EB02 /* Pods_Chroma_Habit.framework */; };
+		88F1D5DE03FC9F8B0D21C48F /* Pods_Watch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED99DE1C5D411D6DA63FB255 /* Pods_Watch_Extension.framework */; };
+		9CE2016A3B1E02ADFC3F122E /* Pods_Chroma_Habit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4154AED68AC15900738AFC5E /* Pods_Chroma_Habit.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		07976D1721606C7B005B9F62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0708048820F0516900973005 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07976D1421606C7B005B9F62;
+			remoteInfo = "Watch Extension";
+		};
+		07976D2621606C7B005B9F62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0708048820F0516900973005 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07976D0821606C79005B9F62;
+			remoteInfo = Watch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		07976D2C21606C7B005B9F62 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				07976D1621606C7B005B9F62 /* Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07976D3021606C7B005B9F62 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				07976D2821606C7B005B9F62 /* Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07976D5221616B99005B9F62 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		0273EE23CF654B8BC9C6F59E /* Pods-Chroma Habit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chroma Habit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chroma Habit/Pods-Chroma Habit.debug.xcconfig"; sourceTree = "<group>"; };
 		0708049020F0516900973005 /* Chroma Habit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chroma Habit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0708049320F0516900973005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0708049720F0516A00973005 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +113,20 @@
 		074A297E214D54300056CD27 /* OnboardAddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardAddHabitViewController.swift; sourceTree = "<group>"; };
 		074A2980214D5EB50056CD27 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		07976D05215DC2CA005B9F62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		07976D0921606C79005B9F62 /* Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		07976D0C21606C79005B9F62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		07976D0E21606C7B005B9F62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		07976D1021606C7B005B9F62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07976D1521606C7B005B9F62 /* Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		07976D1A21606C7B005B9F62 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		07976D1C21606C7B005B9F62 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		07976D1E21606C7B005B9F62 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		07976D2021606C7B005B9F62 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		07976D2221606C7B005B9F62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		07976D2421606C7B005B9F62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07976D2521606C7B005B9F62 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		07976D312160736F005B9F62 /* HabitRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitRowController.swift; sourceTree = "<group>"; };
+		07976D552161B134005B9F62 /* WatchHabit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHabit.swift; sourceTree = "<group>"; };
 		07AF3B2D20F9629A001F86B1 /* HabitsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsTableViewCell.swift; sourceTree = "<group>"; };
 		07B6C73C211DEBB600D37A95 /* MonthHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MonthHeaderView.xib; sourceTree = "<group>"; };
 		07B6C73E211DEC3B00D37A95 /* MonthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthHeaderView.swift; sourceTree = "<group>"; };
@@ -58,8 +137,12 @@
 		07E45CE5213CAD6600B76885 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		07E45CE6213CAD6600B76885 /* PopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		07E45CE9213DBCC500B76885 /* HabitCellReorderBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCellReorderBackgroundView.swift; sourceTree = "<group>"; };
-		82B9774B50144D217D35EB02 /* Pods_Chroma_Habit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chroma_Habit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7D58C3056E44BD684A0E818 /* Pods-Chroma Habit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chroma Habit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chroma Habit/Pods-Chroma Habit.release.xcconfig"; sourceTree = "<group>"; };
+		4154AED68AC15900738AFC5E /* Pods_Chroma_Habit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chroma_Habit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B53809B7AD4B8834EAEA50F /* Pods-Chroma Habit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chroma Habit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chroma Habit/Pods-Chroma Habit.debug.xcconfig"; sourceTree = "<group>"; };
+		775269019A2EC68328DB4651 /* Pods-Chroma Habit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chroma Habit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chroma Habit/Pods-Chroma Habit.release.xcconfig"; sourceTree = "<group>"; };
+		BEFFD57437B6D8BCE9FEC3B6 /* Pods-Watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-Watch Extension/Pods-Watch Extension.release.xcconfig"; sourceTree = "<group>"; };
+		ED99DE1C5D411D6DA63FB255 /* Pods_Watch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Watch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2594A7047FBF1336A44605 /* Pods-Watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Watch Extension/Pods-Watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +150,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49E6F184217A77C8530DC0A0 /* Pods_Chroma_Habit.framework in Frameworks */,
+				9CE2016A3B1E02ADFC3F122E /* Pods_Chroma_Habit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07976D1221606C7B005B9F62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88F1D5DE03FC9F8B0D21C48F /* Pods_Watch_Extension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28AD99B644CB85967AF414AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,9 +176,11 @@
 			isa = PBXGroup;
 			children = (
 				0708049220F0516900973005 /* Chroma Habit */,
+				07976D0A21606C79005B9F62 /* Watch */,
+				07976D1921606C7B005B9F62 /* Watch Extension */,
 				0708049120F0516900973005 /* Products */,
-				F63FA1623DDB37483F3730C2 /* Pods */,
-				24476E493D78358B669CE81A /* Frameworks */,
+				BBAAC34482F6CFFE15B26590 /* Pods */,
+				B26421E1DCDA7155D7549B3F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				0708049020F0516900973005 /* Chroma Habit.app */,
+				07976D0921606C79005B9F62 /* Watch.app */,
+				07976D1521606C7B005B9F62 /* Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,12 +209,38 @@
 			path = "Chroma Habit";
 			sourceTree = "<group>";
 		};
+		07976D0A21606C79005B9F62 /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				07976D0B21606C79005B9F62 /* Interface.storyboard */,
+				07976D0E21606C7B005B9F62 /* Assets.xcassets */,
+				07976D1021606C7B005B9F62 /* Info.plist */,
+			);
+			path = Watch;
+			sourceTree = "<group>";
+		};
+		07976D1921606C7B005B9F62 /* Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				07976D1A21606C7B005B9F62 /* InterfaceController.swift */,
+				07976D312160736F005B9F62 /* HabitRowController.swift */,
+				07976D1C21606C7B005B9F62 /* ExtensionDelegate.swift */,
+				07976D1E21606C7B005B9F62 /* NotificationController.swift */,
+				07976D2021606C7B005B9F62 /* ComplicationController.swift */,
+				07976D2221606C7B005B9F62 /* Assets.xcassets */,
+				07976D2421606C7B005B9F62 /* Info.plist */,
+				07976D2521606C7B005B9F62 /* PushNotificationPayload.apns */,
+			);
+			path = "Watch Extension";
+			sourceTree = "<group>";
+		};
 		07B6C744211E765800D37A95 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				07C08FB721266B06001822F1 /* DBManager.swift */,
 				070804A720F053C400973005 /* Habit.swift */,
 				070804A920F0644200973005 /* Record.swift */,
+				07976D552161B134005B9F62 /* WatchHabit.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -146,19 +274,22 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		24476E493D78358B669CE81A /* Frameworks */ = {
+		B26421E1DCDA7155D7549B3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				82B9774B50144D217D35EB02 /* Pods_Chroma_Habit.framework */,
+				4154AED68AC15900738AFC5E /* Pods_Chroma_Habit.framework */,
+				ED99DE1C5D411D6DA63FB255 /* Pods_Watch_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F63FA1623DDB37483F3730C2 /* Pods */ = {
+		BBAAC34482F6CFFE15B26590 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0273EE23CF654B8BC9C6F59E /* Pods-Chroma Habit.debug.xcconfig */,
-				C7D58C3056E44BD684A0E818 /* Pods-Chroma Habit.release.xcconfig */,
+				6B53809B7AD4B8834EAEA50F /* Pods-Chroma Habit.debug.xcconfig */,
+				775269019A2EC68328DB4651 /* Pods-Chroma Habit.release.xcconfig */,
+				FB2594A7047FBF1336A44605 /* Pods-Watch Extension.debug.xcconfig */,
+				BEFFD57437B6D8BCE9FEC3B6 /* Pods-Watch Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -170,20 +301,60 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 070804A420F0516B00973005 /* Build configuration list for PBXNativeTarget "Chroma Habit" */;
 			buildPhases = (
-				3FEC0A06DA090CEB84E32016 /* [CP] Check Pods Manifest.lock */,
+				7E443AC13C994AE65443F2BA /* [CP] Check Pods Manifest.lock */,
 				0708048C20F0516900973005 /* Sources */,
 				0708048D20F0516900973005 /* Frameworks */,
 				0708048E20F0516900973005 /* Resources */,
-				4412012BD957569DB6241142 /* [CP] Embed Pods Frameworks */,
+				07976D3021606C7B005B9F62 /* Embed Watch Content */,
+				07976D5221616B99005B9F62 /* Embed Frameworks */,
+				5ADE0FE6A13B6D78519BFFD1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				07976D2721606C7B005B9F62 /* PBXTargetDependency */,
 			);
 			name = "Chroma Habit";
 			productName = HabitApp;
 			productReference = 0708049020F0516900973005 /* Chroma Habit.app */;
 			productType = "com.apple.product-type.application";
+		};
+		07976D0821606C79005B9F62 /* Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07976D2D21606C7B005B9F62 /* Build configuration list for PBXNativeTarget "Watch" */;
+			buildPhases = (
+				07976D0721606C79005B9F62 /* Resources */,
+				07976D2C21606C7B005B9F62 /* Embed App Extensions */,
+				28AD99B644CB85967AF414AA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07976D1821606C7B005B9F62 /* PBXTargetDependency */,
+			);
+			name = Watch;
+			productName = Watch;
+			productReference = 07976D0921606C79005B9F62 /* Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		07976D1421606C7B005B9F62 /* Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07976D2921606C7B005B9F62 /* Build configuration list for PBXNativeTarget "Watch Extension" */;
+			buildPhases = (
+				E513644F648DA0DB4A7592A8 /* [CP] Check Pods Manifest.lock */,
+				07976D1121606C7B005B9F62 /* Sources */,
+				07976D1221606C7B005B9F62 /* Frameworks */,
+				07976D1321606C7B005B9F62 /* Resources */,
+				62344B8EB9CBD1E378C6BB1F /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Watch Extension";
+			productName = "Watch Extension";
+			productReference = 07976D1521606C7B005B9F62 /* Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -191,13 +362,19 @@
 		0708048820F0516900973005 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Eric Castillo";
 				TargetAttributes = {
 					0708048F20F0516900973005 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1000;
+					};
+					07976D0821606C79005B9F62 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					07976D1421606C7B005B9F62 = {
+						CreatedOnToolsVersion = 10.0;
 					};
 				};
 			};
@@ -215,6 +392,8 @@
 			projectRoot = "";
 			targets = (
 				0708048F20F0516900973005 /* Chroma Habit */,
+				07976D0821606C79005B9F62 /* Watch */,
+				07976D1421606C7B005B9F62 /* Watch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -233,10 +412,75 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		07976D0721606C79005B9F62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07976D0F21606C7B005B9F62 /* Assets.xcassets in Resources */,
+				07976D0D21606C79005B9F62 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07976D1321606C7B005B9F62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07976D2321606C7B005B9F62 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3FEC0A06DA090CEB84E32016 /* [CP] Check Pods Manifest.lock */ = {
+		5ADE0FE6A13B6D78519BFFD1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Chroma Habit/Pods-Chroma Habit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
+				"${BUILT_PRODUCTS_DIR}/DynamicColor-iOS/DynamicColor.framework",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicColor.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chroma Habit/Pods-Chroma Habit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62344B8EB9CBD1E378C6BB1F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Watch Extension/Pods-Watch Extension-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DynamicColor-watchOS/DynamicColor.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicColor.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch Extension/Pods-Watch Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E443AC13C994AE65443F2BA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -254,34 +498,22 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4412012BD957569DB6241142 /* [CP] Embed Pods Frameworks */ = {
+		E513644F648DA0DB4A7592A8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Chroma Habit/Pods-Chroma Habit-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
-				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
-				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
-				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
-				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"$(DERIVED_FILE_DIR)/Pods-Watch Extension-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chroma Habit/Pods-Chroma Habit-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -301,6 +533,7 @@
 				07B6C73F211DEC3B00D37A95 /* MonthHeaderView.swift in Sources */,
 				07E45CE0212BA2F800B76885 /* Colors.swift in Sources */,
 				07C08FB821266B06001822F1 /* DBManager.swift in Sources */,
+				07976D572161B1AB005B9F62 /* WatchHabit.swift in Sources */,
 				07E45CE4213A2DD500B76885 /* HabitsTableView.swift in Sources */,
 				074A297D214D4F8A0056CD27 /* OnboardPageViewController.swift in Sources */,
 				070804AA20F0644200973005 /* Record.swift in Sources */,
@@ -310,7 +543,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		07976D1121606C7B005B9F62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07976D322160736F005B9F62 /* HabitRowController.swift in Sources */,
+				07976D5421617745005B9F62 /* Colors.swift in Sources */,
+				07976D562161B134005B9F62 /* WatchHabit.swift in Sources */,
+				07976D1F21606C7B005B9F62 /* NotificationController.swift in Sources */,
+				07976D2121606C7B005B9F62 /* ComplicationController.swift in Sources */,
+				07976D1D21606C7B005B9F62 /* ExtensionDelegate.swift in Sources */,
+				07976D1B21606C7B005B9F62 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		07976D1821606C7B005B9F62 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07976D1421606C7B005B9F62 /* Watch Extension */;
+			targetProxy = 07976D1721606C7B005B9F62 /* PBXContainerItemProxy */;
+		};
+		07976D2721606C7B005B9F62 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07976D0821606C79005B9F62 /* Watch */;
+			targetProxy = 07976D2621606C7B005B9F62 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0708049920F0516A00973005 /* Main.storyboard */ = {
@@ -327,6 +587,14 @@
 				0708049F20F0516B00973005 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		07976D0B21606C79005B9F62 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07976D0C21606C79005B9F62 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -367,6 +635,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = YRPW3NL9P9;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -427,6 +696,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = YRPW3NL9P9;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -448,8 +718,9 @@
 		};
 		070804A520F0516B00973005 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0273EE23CF654B8BC9C6F59E /* Pods-Chroma Habit.debug.xcconfig */;
+			baseConfigurationReference = 6B53809B7AD4B8834EAEA50F /* Pods-Chroma Habit.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YRPW3NL9P9;
@@ -468,8 +739,9 @@
 		};
 		070804A620F0516B00973005 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7D58C3056E44BD684A0E818 /* Pods-Chroma Habit.release.xcconfig */;
+			baseConfigurationReference = 775269019A2EC68328DB4651 /* Pods-Chroma Habit.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YRPW3NL9P9;
@@ -483,6 +755,96 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		07976D2A21606C7B005B9F62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB2594A7047FBF1336A44605 /* Pods-Watch Extension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YRPW3NL9P9;
+				INFOPLIST_FILE = "Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ericcastillo.ChromaHabit.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Debug;
+		};
+		07976D2B21606C7B005B9F62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEFFD57437B6D8BCE9FEC3B6 /* Pods-Watch Extension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YRPW3NL9P9;
+				INFOPLIST_FILE = "Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ericcastillo.ChromaHabit.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Release;
+		};
+		07976D2E21606C7B005B9F62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YRPW3NL9P9;
+				IBSC_MODULE = Watch_Extension;
+				INFOPLIST_FILE = Watch/Info.plist;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ericcastillo.ChromaHabit.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Debug;
+		};
+		07976D2F21606C7B005B9F62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YRPW3NL9P9;
+				IBSC_MODULE = Watch_Extension;
+				INFOPLIST_FILE = Watch/Info.plist;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ericcastillo.ChromaHabit.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Release;
 		};
@@ -503,6 +865,24 @@
 			buildConfigurations = (
 				070804A520F0516B00973005 /* Debug */,
 				070804A620F0516B00973005 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07976D2921606C7B005B9F62 /* Build configuration list for PBXNativeTarget "Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07976D2A21606C7B005B9F62 /* Debug */,
+				07976D2B21606C7B005B9F62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07976D2D21606C7B005B9F62 /* Build configuration list for PBXNativeTarget "Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07976D2E21606C7B005B9F62 /* Debug */,
+				07976D2F21606C7B005B9F62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -25,7 +25,7 @@ class OnboardAddHabitViewController: UIViewController, UITextFieldDelegate {
         nameTextField.setLeftPaddingPoints(15)
         //nameTextField.setRightPaddingPoints(10)
         nameTextField.layer.cornerRadius = 3
-        nameTextField.layer.borderColor = UIColor(hexString: "E1E2E7")?.cgColor
+        nameTextField.layer.borderColor = UIColor(hexString: "E1E2E7").cgColor
         nameTextField.layer.borderWidth = 1
     }
     

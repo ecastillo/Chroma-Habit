@@ -10,6 +10,6 @@ import Foundation
 import RealmSwift
 
 class Record: Object {
-    @objc dynamic var date = ""
-    @objc dynamic var habit: Habit?
+    @objc public dynamic var date = ""
+    @objc public dynamic var habit: Habit?
 }

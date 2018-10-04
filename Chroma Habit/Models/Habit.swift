@@ -10,10 +10,10 @@ import Foundation
 import RealmSwift
 
 class Habit: Object {
-    @objc dynamic var id = UUID().uuidString
-    @objc dynamic var name = ""
-    @objc dynamic var color = ""
-    @objc dynamic var order = 0
+    @objc public dynamic var id = UUID().uuidString
+    @objc public dynamic var name = ""
+    @objc public dynamic var color = ""
+    @objc public dynamic var order = 0
     
     override static func primaryKey() -> String? {
         return "id"

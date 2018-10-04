@@ -11,8 +11,96 @@ import JTAppleCalendar
 import RealmSwift
 import PopupDialog
 import Onboard
+import WatchConnectivity
 
-class CalendarViewController: UIViewController {
+class CalendarViewController: UIViewController, WCSessionDelegate {
+    
+    var session: WCSession?
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        print("activationDidComplete on phone")
+        
+        sendDataToWatch()
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        print("sessionDidBecomeInactive")
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        print("sessionDidDeactivate")
+    }
+    
+    func sendDataToWatch() {
+//        if let path = Realm.Configuration().fileURL {
+//            print("sending file from phone to watch")
+//            WCSession.default.transferFile(path, metadata: nil)
+//        }
+        
+        let hmm = DBManager.shared.getHabits()
+        
+        var watchHabits = [WatchHabit]()
+        for habit in hmm {
+            let watchHabit = WatchHabit()
+            watchHabit.habitId = habit.id
+            watchHabit.habitName = habit.name
+            watchHabit.habitColor = habit.color
+            if let _ = DBManager.shared.getRecord(for: habit, on: Date()) {
+                watchHabit.done = true
+            }
+            watchHabits.append(watchHabit)
+        }
+        //session?.sendMessage(watchHabits, replyHandler: nil, errorHandler: nil)
+        
+        //let data = NSKeyedArchiver.archivedData(withRootObject: watchHabits)
+        
+        let jsonEncoder = JSONEncoder()
+        guard let data = try? jsonEncoder.encode(watchHabits) else {
+            fatalError("oh no!")
+        }
+        
+        session?.sendMessageData(data, replyHandler: nil, errorHandler: nil)
+    }
+    
+    func session(_ session: WCSession, didReceiveMessageData messageData: Data) {
+        print("recieved data from watch")
+        
+        let jsonDecoder = JSONDecoder()
+        guard let watchHabit = try? jsonDecoder.decode(WatchHabit.self, from: messageData) else {
+            fatalError("Couldn't decode data from watch")
+        }
+        print("habit received from watch to phone: \(watchHabit.habitName!), with done: \(watchHabit.done)")
+        DispatchQueue.main.async {
+            if let habit = DBManager.shared.getHabit(withId: watchHabit.habitId!) {
+                if watchHabit.done {
+                    DBManager.shared.createRecord(habit: habit, date: Date())
+                } else {
+                    DBManager.shared.deleteRecord(for: habit, on: Date())
+                }
+                self.tableView.reloadData()
+                self.calendarView.reloadDates([Date()])
+            }
+        }
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
+        if message["test"] as! Bool == true {
+            sendDataToWatch()
+        }
+    }
+    
+//    func session(_ session: WCSession, didReceive file: WCSessionFile) {
+//        print("recieved a file from watch!")
+//        var config = Realm.Configuration()
+//        config.fileURL = file.fileURL
+//        Realm.Configuration.defaultConfiguration = config
+//
+//        DispatchQueue.main.sync {
+//            self.loadData()
+//            self.tableView.reloadData()
+//            self.calendarView.reloadDates([Date()])
+//        }
+//    }
 
     let dateFormatter = DateFormatter()
     var selectedDate = Date()
@@ -44,10 +132,12 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("does this even show up?")
+        
         loadData()
         
         editHabitsButton.backgroundColor = UIColor.white
-        editHabitsButton.tintColor = UIColor.flatBlue
+        editHabitsButton.tintColor = UIColor(hexString: "#2C396D")
         editHabitsButton.setImage(editHabitsButton.image(for: .normal)?.withRenderingMode(.alwaysTemplate), for: .normal)
         editHabitsButton.layer.cornerRadius = editHabitsButton.frame.width/2
         editHabitsButton.layer.shadowColor = UIColor.black.cgColor
@@ -56,7 +146,7 @@ class CalendarViewController: UIViewController {
         editHabitsButton.layer.shadowOffset = CGSize.zero
         
         newHabitButton.backgroundColor = UIColor.white
-        newHabitButton.tintColor = UIColor.flatBlue
+        newHabitButton.tintColor = UIColor(hexString: "#2C396D")
         newHabitButton.setImage(newHabitButton.image(for: .normal)?.withRenderingMode(.alwaysTemplate), for: .normal)
         newHabitButton.layer.cornerRadius = newHabitButton.frame.width/2
         newHabitButton.layer.shadowColor = UIColor.black.cgColor
@@ -96,6 +186,16 @@ class CalendarViewController: UIViewController {
         statusBarBackground.locations = [0.35, 1.0]
         statusBarBackground.zPosition = 1
         view.layer.addSublayer(statusBarBackground)
+        
+        
+        if WCSession.isSupported() {
+            print("WCSession is supported on phone")
+            session = WCSession.default
+            session!.delegate = self
+            session!.activate()
+        } else {
+            print("WCSession is NOT supported on phone")
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -158,39 +258,42 @@ class CalendarViewController: UIViewController {
     }
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
-        tableView.setEditing(!tableView.isEditing, animated: true)
-        if tableView.isEditing {
-            isInEditMode = true
-            UIView.animate(withDuration: 0.4,
-                           animations: {
-                            self.tableView.contentInset.top = 0
-                            self.dateView.alpha = 0
-                            self.editingBgView.alpha = 1
-                            self.editHabitsButton.backgroundColor = UIColor.flatBlue
-                            self.editHabitsButton.tintColor = UIColor.white
-                            self.newHabitButton.alpha = 0
-            })
-        } else {
-            calendarView.reloadData()
-            UIView.animate(withDuration: 0.4,
-                           animations: {
-                            let a = (2/3)*self.view.frame.height
-                            if self.tableView.contentSize.height < (1/3)*self.view.frame.height {
-                                self.tableView.contentInset = UIEdgeInsets(top: a, left: 0, bottom: 0, right: 0)
-                                print("contentSize.height in editing animation: \(self.tableView.contentSize.height)")
-                            } else {
-                                self.tableView.contentInset = UIEdgeInsets(top: a, left: 0, bottom: 0, right: 0)
-                            }
-                            //self.tableView.contentInset = UIEdgeInsets(top: self.calendarView.frame.height-200, left: 0, bottom: 0, right: 0)
-                            self.dateView.alpha = 1
-                            self.editingBgView.alpha = 0
-                            self.editHabitsButton.backgroundColor = UIColor.white
-                            self.editHabitsButton.tintColor = UIColor.flatBlue
-                            self.newHabitButton.alpha = 1
-            }) { (finished) in
-                self.isInEditMode = false
-            }
-        }
+        self.loadData()
+        self.tableView.reloadData()
+        self.calendarView.reloadDates([Date()])
+//        tableView.setEditing(!tableView.isEditing, animated: true)
+//        if tableView.isEditing {
+//            isInEditMode = true
+//            UIView.animate(withDuration: 0.4,
+//                           animations: {
+//                            self.tableView.contentInset.top = 0
+//                            self.dateView.alpha = 0
+//                            self.editingBgView.alpha = 1
+//                            self.editHabitsButton.backgroundColor = UIColor(hexString: "#2C396D")
+//                            self.editHabitsButton.tintColor = UIColor.white
+//                            self.newHabitButton.alpha = 0
+//            })
+//        } else {
+//            calendarView.reloadData()
+//            UIView.animate(withDuration: 0.4,
+//                           animations: {
+//                            let a = (2/3)*self.view.frame.height
+//                            if self.tableView.contentSize.height < (1/3)*self.view.frame.height {
+//                                self.tableView.contentInset = UIEdgeInsets(top: a, left: 0, bottom: 0, right: 0)
+//                                print("contentSize.height in editing animation: \(self.tableView.contentSize.height)")
+//                            } else {
+//                                self.tableView.contentInset = UIEdgeInsets(top: a, left: 0, bottom: 0, right: 0)
+//                            }
+//                            //self.tableView.contentInset = UIEdgeInsets(top: self.calendarView.frame.height-200, left: 0, bottom: 0, right: 0)
+//                            self.dateView.alpha = 1
+//                            self.editingBgView.alpha = 0
+//                            self.editHabitsButton.backgroundColor = UIColor.white
+//                            self.editHabitsButton.tintColor = UIColor(hexString: "#2C396D")
+//                            self.newHabitButton.alpha = 1
+//            }) { (finished) in
+//                self.isInEditMode = false
+//            }
+//        }
     }
     
     @IBAction func newHabitButtonTapped(_ sender: UIButton) {
@@ -288,6 +391,8 @@ extension CalendarViewController: JTAppleCalendarViewDelegate, JTAppleCalendarVi
                 slice.frame.size.height = sliceHeight*CGFloat(i+1)
                 slice.backgroundColor = habitColors[(record.habit?.id)!]?.cgColor
                 cell.progressContainerLayer.addSublayer(slice)
+                cell.progressContainerLayer.layoutIfNeeded()
+                print("found a record for habit: \(record.habit?.name)")
             }
         } else {
             cell.progressContainerLayer.isHidden = true
@@ -376,6 +481,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("cellForRowAtIndexPath has run")
         let habitCell = tableView.dequeueReusableCell(withIdentifier: "habitCell", for: indexPath) as! HabitsTableViewCell
         
         if let habit = habits?[indexPath.row] {
@@ -383,12 +489,26 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
             CATransaction.setDisableActions(true)
             
             habitCell.titleLabel.text = habit.name
-            habitCell.reorderBackgroundView.color = UIColor(hexString: habit.color)!
-            habitCell.highlight.backgroundColor = UIColor(hexString: habit.color)?.cgColor
+            habitCell.reorderBackgroundView.color = UIColor(hexString: habit.color)
+            habitCell.highlight.backgroundColor = UIColor(hexString: habit.color).cgColor
             habitCell.tintColor = UIColor(hexString: habit.color)
-            habitCell.checkmarkView.layer.borderColor = UIColor(hexString: habit.color)?.cgColor
+            habitCell.checkmarkView.layer.borderColor = UIColor(hexString: habit.color).cgColor
             
-            habitCell.setDone((DBManager.shared.getRecord(for: habit, on: selectedDate) != nil), animated: false)
+            //DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+                let realm4 = try! Realm()
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let dateString = dateFormatter.string(from: Date())
+                let predicate = NSPredicate(format: "habit.id = %@ AND date = %@", habit.id, dateString)
+                let isDone = (realm4.objects(Record.self).filter(predicate).first != nil)
+                
+                //let isDone = (DBManager.shared.getRecord(for: habit, on: selectedDate) != nil)
+                print("cellForRowAtIndexPath: habit \(habit.name) is done? \(isDone)")
+                habitCell.setDone(isDone, animated: false)
+            //})
+            
+            
             
             CATransaction.commit()
         }
@@ -411,6 +531,10 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
             calendarView.reloadDates([selectedDate])
             
             selectedCell.setSelected(false, animated: true)
+            
+            if Calendar.current.compare(selectedDate, to: todaysDate, toGranularity: .day) == .orderedSame{
+                sendDataToWatch()
+            }
         } else {
             let popupViewController = PopupViewController()
             popupViewController.habit = selectedHabit
@@ -482,9 +606,12 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
 //        calendarView.selectDates([Date()])
 //    }
     
+    //TODO: rename this function because is also used when creating a habit?
     func userEditedAHabit() {
         loadData()
         calendarView.reloadData()
         tableView.reloadData()
+        
+        sendDataToWatch()
     }
 }

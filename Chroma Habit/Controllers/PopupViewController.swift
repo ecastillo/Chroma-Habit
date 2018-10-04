@@ -26,7 +26,7 @@ class PopupViewController: UIViewController {
         nameTextField.setLeftPaddingPoints(15)
         //nameTextField.setRightPaddingPoints(10)
         nameTextField.layer.cornerRadius = 3
-        nameTextField.layer.borderColor = UIColor(hexString: "E1E2E7")?.cgColor
+        nameTextField.layer.borderColor = UIColor(hexString: "E1E2E7").cgColor
         nameTextField.layer.borderWidth = 1
         
         // TODO: Use collecion view instead of stack views?
@@ -44,7 +44,7 @@ class PopupViewController: UIViewController {
             nameTextField.text = habitToEdit.name
             selectedColor = UIColor(hexString: habitToEdit.color)
             for colorButton in colorsRow1.arrangedSubviews as! [ColorButton] {
-                if habitToEdit.color == COLORS[colorButton.tag].hexValue() {
+                if habitToEdit.color == COLORS[colorButton.tag].hexString {
                     colorButton.isSelected = true
                 }
             }

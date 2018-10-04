@@ -99,6 +99,8 @@ class HabitsTableViewCell: UITableViewCell {
     
     func setDone(_ isDone: Bool, animated: Bool) {
         done = isDone
-        showDefaultView(animated: animated)
+        DispatchQueue.main.async {
+            self.showDefaultView(animated: animated)
+        }
     }
 }

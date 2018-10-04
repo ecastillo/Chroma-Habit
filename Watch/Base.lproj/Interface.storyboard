@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14313.18" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14238.10"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch" customModuleProvider="target">
+                    <items>
+                        <dateLabel alignment="left" format="EEEE, MMM d" id="rd5-iK-sAh"/>
+                        <table alignment="left" id="S8W-zh-nsY">
+                            <items>
+                                <tableRow identifier="HabitRow" id="YbM-Bo-Ddo" customClass="HabitRowController" customModule="Watch_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="AwA-5i-lU4">
+                                        <items>
+                                            <separator alignment="left" id="Mct-86-xms"/>
+                                            <label height="49" alignment="left" text="Label" id="fC7-1U-0y5"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="group" destination="AwA-5i-lU4" id="a2Q-7h-6Cc"/>
+                                        <outlet property="name" destination="fC7-1U-0y5" id="baT-sQ-3AZ"/>
+                                        <outlet property="separator" destination="Mct-86-xms" id="QTI-Fq-Dqk"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="habitsTable" destination="S8W-zh-nsY" id="cBS-XP-YmJ"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="275"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="Watch" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="543" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="Niz-AI-uX2">
+            <objects>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="Watch" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="220" y="1016"/>
+        </scene>
+    </scenes>
+</document>

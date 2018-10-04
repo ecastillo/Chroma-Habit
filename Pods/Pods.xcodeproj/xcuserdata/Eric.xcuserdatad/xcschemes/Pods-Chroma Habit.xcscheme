@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1000"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4FEA8CB0E7ECA4CABFF7DDAE052500FB"
+               BlueprintIdentifier = "853064A77EF925FAA4FD163F6D4388F0"
                BuildableName = "Pods_Chroma_Habit.framework"
                BlueprintName = "Pods-Chroma Habit"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4FEA8CB0E7ECA4CABFF7DDAE052500FB"
+            BlueprintIdentifier = "853064A77EF925FAA4FD163F6D4388F0"
             BuildableName = "Pods_Chroma_Habit.framework"
             BlueprintName = "Pods-Chroma Habit"
             ReferencedContainer = "container:Pods.xcodeproj">

@@ -45,7 +45,7 @@ class OnboardViewController: UIViewController {
         super.viewDidLoad()
         
         calendarView.layer.borderWidth = 1
-        calendarView.layer.borderColor = UIColor(hexString: "1980FE")?.cgColor
+        calendarView.layer.borderColor = UIColor(hexString: "1980FE").cgColor
         calendarView.layer.cornerRadius = 4
         
         topSegmentHeightConstraint.isActive = false
@@ -54,13 +54,13 @@ class OnboardViewController: UIViewController {
         
         
         topHabitOuter.layer.borderWidth = 1
-        topHabitOuter.layer.borderColor = UIColor(hexString: "D9EDFB")?.cgColor
+        topHabitOuter.layer.borderColor = UIColor(hexString: "D9EDFB").cgColor
         topHabitOuter.layer.cornerRadius = 3
         middleHabitOuter.layer.borderWidth = 1
-        middleHabitOuter.layer.borderColor = UIColor(hexString: "AED7FE")?.cgColor
+        middleHabitOuter.layer.borderColor = UIColor(hexString: "AED7FE").cgColor
         middleHabitOuter.layer.cornerRadius = 3
         bottomHabitOuter.layer.borderWidth = 1
-        bottomHabitOuter.layer.borderColor = UIColor(hexString: "6BB4FF")?.cgColor
+        bottomHabitOuter.layer.borderColor = UIColor(hexString: "6BB4FF").cgColor
         bottomHabitOuter.layer.cornerRadius = 3
         
         topHabitWidthConstraint.isActive = false

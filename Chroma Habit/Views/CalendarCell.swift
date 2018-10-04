@@ -8,7 +8,7 @@
 
 import UIKit
 import JTAppleCalendar
-import ChameleonFramework
+import DynamicColor
 import RealmSwift
 
 class CalendarCell: JTAppleCell {

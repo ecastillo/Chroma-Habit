@@ -1,8 +1,6 @@
 PODS:
-  - ChameleonFramework/Default (2.1.0)
-  - ChameleonFramework/Swift (2.1.0):
-    - ChameleonFramework/Default
   - DynamicBlurView (3.0.1)
+  - DynamicColor (4.0.2)
   - JTAppleCalendar (7.1.6)
   - Onboard (2.3.3)
   - PopupDialog (0.9.0):
@@ -14,7 +12,7 @@ PODS:
     - Realm (= 3.10.0)
 
 DEPENDENCIES:
-  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - DynamicColor (~> 4.0.2)
   - JTAppleCalendar (~> 7.0)
   - Onboard
   - PopupDialog (~> 0.8)
@@ -23,30 +21,22 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - DynamicBlurView
+    - DynamicColor
     - JTAppleCalendar
     - Onboard
     - PopupDialog
     - Realm
     - RealmSwift
 
-EXTERNAL SOURCES:
-  ChameleonFramework:
-    :git: https://github.com/ViccAlexander/Chameleon.git
-
-CHECKOUT OPTIONS:
-  ChameleonFramework:
-    :commit: 6dd284bde21ea2e7f9fd89bc36f40df16e16369d
-    :git: https://github.com/ViccAlexander/Chameleon.git
-
 SPEC CHECKSUMS:
-  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   DynamicBlurView: b1df5415f9bd31897549e5d7077e5ec120a4d636
+  DynamicColor: c7adcfe871781a2b39877a5774e452ba51b79eb3
   JTAppleCalendar: abb30678f42a4ef8a340a932b1dcb8c85a33dac2
   Onboard: 4d6e943e20bdd6bc229df967a347dd7514bc2a6f
   PopupDialog: 953c9502f0aa0adcead7d5eb3e9a4d46a11a0093
   Realm: 85ab9e4f779d66f6e9ffeb118dc25b7f130c96ac
   RealmSwift: 69121c8b86d0ae005fb779efdb10e606732e1c74
 
-PODFILE CHECKSUM: c83b99069d33564ca14b42ca03ebf6046ea54a27
+PODFILE CHECKSUM: bc8e346a6d260b524b40136d2e4fb4f90beaa82d
 
 COCOAPODS: 1.5.3
