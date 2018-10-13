@@ -32,6 +32,8 @@
 		07976D5421617745005B9F62 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CDF212BA2F800B76885 /* Colors.swift */; };
 		07976D562161B134005B9F62 /* WatchHabit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07976D552161B134005B9F62 /* WatchHabit.swift */; };
 		07976D572161B1AB005B9F62 /* WatchHabit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07976D552161B134005B9F62 /* WatchHabit.swift */; };
+		07976D5921691E5F005B9F62 /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07976D5821691E5F005B9F62 /* WatchSessionManager.swift */; };
+		07976D5B21693B55005B9F62 /* PhoneSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07976D5A21693B55005B9F62 /* PhoneSessionManager.swift */; };
 		07AF3B2E20F9629A001F86B1 /* HabitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AF3B2D20F9629A001F86B1 /* HabitsTableViewCell.swift */; };
 		07B6C73D211DEBB600D37A95 /* MonthHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07B6C73C211DEBB600D37A95 /* MonthHeaderView.xib */; };
 		07B6C73F211DEC3B00D37A95 /* MonthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6C73E211DEC3B00D37A95 /* MonthHeaderView.swift */; };
@@ -127,6 +129,8 @@
 		07976D2521606C7B005B9F62 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		07976D312160736F005B9F62 /* HabitRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitRowController.swift; sourceTree = "<group>"; };
 		07976D552161B134005B9F62 /* WatchHabit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHabit.swift; sourceTree = "<group>"; };
+		07976D5821691E5F005B9F62 /* WatchSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSessionManager.swift; sourceTree = "<group>"; };
+		07976D5A21693B55005B9F62 /* PhoneSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneSessionManager.swift; sourceTree = "<group>"; };
 		07AF3B2D20F9629A001F86B1 /* HabitsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsTableViewCell.swift; sourceTree = "<group>"; };
 		07B6C73C211DEBB600D37A95 /* MonthHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MonthHeaderView.xib; sourceTree = "<group>"; };
 		07B6C73E211DEC3B00D37A95 /* MonthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthHeaderView.swift; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 		07976D1921606C7B005B9F62 /* Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				07976D5A21693B55005B9F62 /* PhoneSessionManager.swift */,
 				07976D1A21606C7B005B9F62 /* InterfaceController.swift */,
 				07976D312160736F005B9F62 /* HabitRowController.swift */,
 				07976D1C21606C7B005B9F62 /* ExtensionDelegate.swift */,
@@ -240,6 +245,7 @@
 				07C08FB721266B06001822F1 /* DBManager.swift */,
 				070804A720F053C400973005 /* Habit.swift */,
 				070804A920F0644200973005 /* Record.swift */,
+				07976D5821691E5F005B9F62 /* WatchSessionManager.swift */,
 				07976D552161B134005B9F62 /* WatchHabit.swift */,
 			);
 			path = Models;
@@ -369,6 +375,11 @@
 					0708048F20F0516900973005 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1000;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					07976D0821606C79005B9F62 = {
 						CreatedOnToolsVersion = 10.0;
@@ -533,6 +544,7 @@
 				07B6C73F211DEC3B00D37A95 /* MonthHeaderView.swift in Sources */,
 				07E45CE0212BA2F800B76885 /* Colors.swift in Sources */,
 				07C08FB821266B06001822F1 /* DBManager.swift in Sources */,
+				07976D5921691E5F005B9F62 /* WatchSessionManager.swift in Sources */,
 				07976D572161B1AB005B9F62 /* WatchHabit.swift in Sources */,
 				07E45CE4213A2DD500B76885 /* HabitsTableView.swift in Sources */,
 				074A297D214D4F8A0056CD27 /* OnboardPageViewController.swift in Sources */,
@@ -552,6 +564,7 @@
 				07976D562161B134005B9F62 /* WatchHabit.swift in Sources */,
 				07976D1F21606C7B005B9F62 /* NotificationController.swift in Sources */,
 				07976D2121606C7B005B9F62 /* ComplicationController.swift in Sources */,
+				07976D5B21693B55005B9F62 /* PhoneSessionManager.swift in Sources */,
 				07976D1D21606C7B005B9F62 /* ExtensionDelegate.swift in Sources */,
 				07976D1B21606C7B005B9F62 /* InterfaceController.swift in Sources */,
 			);
@@ -810,7 +823,7 @@
 		07976D2E21606C7B005B9F62 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YRPW3NL9P9;
@@ -831,7 +844,7 @@
 		07976D2F21606C7B005B9F62 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YRPW3NL9P9;

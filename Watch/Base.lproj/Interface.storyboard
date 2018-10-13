@@ -13,7 +13,10 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch" customModuleProvider="target">
                     <items>
-                        <dateLabel alignment="left" format="EEEE, MMM d" id="rd5-iK-sAh"/>
+                        <label alignment="left" text="Loading..." id="cRv-Dp-js7"/>
+                        <dateLabel alignment="left" format="EEEE, MMM d" id="rd5-iK-sAh">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </dateLabel>
                         <table alignment="left" id="S8W-zh-nsY">
                             <items>
                                 <tableRow identifier="HabitRow" id="YbM-Bo-Ddo" customClass="HabitRowController" customModule="Watch_Extension">
@@ -33,11 +36,20 @@
                         </table>
                     </items>
                     <connections>
+                        <outlet property="dateLabel" destination="rd5-iK-sAh" id="Gzr-xc-eMA"/>
+                        <outlet property="errorLabel" destination="cRv-Dp-js7" id="f5w-Z2-CXn"/>
                         <outlet property="habitsTable" destination="S8W-zh-nsY" id="cBS-XP-YmJ"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="275"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="Iqq-0p-1ge">
+            <objects>
+                <controller id="EbO-L2-cdH"/>
+            </objects>
+            <point key="canvasLocation" x="533" y="275"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

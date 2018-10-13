@@ -7,8 +7,22 @@
 //
 
 import WatchKit
+import WatchConnectivity
+
+var session: WCSession?
+var watchHabits: [WatchHabit]!
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
+    
+    override init() {
+        super.init()
+        
+        if WCSession.isSupported() {
+            PhoneSessionManager.shared.session = WCSession.default
+            PhoneSessionManager.shared.session!.delegate = PhoneSessionManager.shared
+            PhoneSessionManager.shared.session!.activate()
+        }
+    }
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.

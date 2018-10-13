@@ -8,14 +8,25 @@
 
 import UIKit
 import RealmSwift
+import WatchConnectivity
+
+let recordModifiedOnWatchNotificationID = "com.chromahabit.recordModifiedOnWatchNotificationID"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if WCSession.isSupported() {
+            print("WCSession is supported on phone")
+            WatchSessionManager.shared.session = WCSession.default
+            WatchSessionManager.shared.session!.delegate = WatchSessionManager.shared
+            WatchSessionManager.shared.session!.activate()
+        } else {
+            print("WCSession is NOT supported on phone")
+        }
         
         print(Realm.Configuration.defaultConfiguration.fileURL ?? "")
         
