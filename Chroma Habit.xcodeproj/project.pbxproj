@@ -110,6 +110,7 @@
 		070804A720F053C400973005 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		070804A920F0644200973005 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		070804AB20F06CD100973005 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		0713C28C21719CDB00DEA386 /* Swift.gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = Swift.gitignore; sourceTree = "<group>"; };
 		074A297A21475E4A0056CD27 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		074A297C214D4F8A0056CD27 /* OnboardPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardPageViewController.swift; sourceTree = "<group>"; };
 		074A297E214D54300056CD27 /* OnboardAddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardAddHabitViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +180,7 @@
 		0708048720F0516900973005 = {
 			isa = PBXGroup;
 			children = (
+				0713C28C21719CDB00DEA386 /* Swift.gitignore */,
 				0708049220F0516900973005 /* Chroma Habit */,
 				07976D0A21606C79005B9F62 /* Watch */,
 				07976D1921606C7B005B9F62 /* Watch Extension */,
