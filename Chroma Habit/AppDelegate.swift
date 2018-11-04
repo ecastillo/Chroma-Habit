@@ -19,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        
+        
+        
+        
+        
         if WCSession.isSupported() {
             print("WCSession is supported on phone")
             WatchSessionManager.shared.session = WCSession.default
@@ -28,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("WCSession is NOT supported on phone")
         }
         
-        print(Realm.Configuration.defaultConfiguration.fileURL ?? "")
+        print(Realm.Configuration.defaultConfiguration.fileURL?.path ?? "")
         
         if !UserDefaults.standard.bool(forKey: "completedOnboarding") {
             // Trick to present onboarding as a modal without the initial screen flashing on load

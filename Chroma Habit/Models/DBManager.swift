@@ -14,9 +14,58 @@ class DBManager {
     
     static let shared = DBManager()
     let dateFormatter = DateFormatter()
+//    var realmConfig: Realm.Configuration = {
+//        
+//    }()
     
     init() {
         dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        let fileManager = FileManager.default
+        
+        //Cache original realm path (documents directory)
+        let originalDefaultRealmPath = Realm.Configuration.defaultConfiguration.fileURL
+        
+        
+        
+        //Generate new realm path based on app group
+        let appGroupURL: URL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.ecastillo.chromahabit")!
+        let newRealmPath = appGroupURL.appendingPathComponent("default.realm")
+        
+        //try! fileManager.removeItem(atPath: newRealmPath.path)
+        
+        //Moves the realm to the new location if it hasn't been done previously
+        if (fileManager.fileExists(atPath: (originalDefaultRealmPath?.path)!) && !fileManager.fileExists(atPath: newRealmPath.path)) {
+            print("file exists at original defualt realm path")
+            do {
+                try fileManager.moveItem(atPath: (originalDefaultRealmPath?.path)!, toPath: newRealmPath.path)
+            } catch {
+                print("Error! Could not move Realm database to App Group.")
+                print(error)
+            }
+        }
+        
+        let config = Realm.Configuration(
+            fileURL: newRealmPath,
+            schemaVersion: 14,
+            migrationBlock: { migration, oldSchemaVersion in
+                print("old schema version: \(oldSchemaVersion)")
+                if (oldSchemaVersion < 14) {
+                    
+                    
+                }
+        })
+        
+        
+        
+        // Tell Realm to use this new configuration object for the default Realm
+        Realm.Configuration.defaultConfiguration = config
+        print("schema version: \(config.schemaVersion)")
+        print("new realm path: \(newRealmPath.path)")
+        
+        // Now that we've told Realm how to handle the schema change, opening the file
+        // will automatically perform the migration
+        let _ = try! Realm()
     }
     
     func getHabit(withId id: String) -> Habit? {

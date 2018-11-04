@@ -14,7 +14,7 @@ import RealmSwift
 class CalendarCell: JTAppleCell {
     var records: Results<Record>?
 
-    var progressContainerLayer = CAShapeLayer()
+    var progressContainerLayer = ProgressLayer()
     var border = CALayer()
     let dateText = CATextLayer()
     let dateBg = CAShapeLayer()

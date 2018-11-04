@@ -39,17 +39,6 @@ class PhoneSessionManager: NSObject, WCSessionDelegate {
         session!.sendMessageData(jsonData, replyHandler: nil, errorHandler: nil)
     }
     
-    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        let wh = applicationContext["whatever"] as! WatchHabit
-        for watchHabit in watchHabits {
-            if watchHabit.habitId == wh.habitId {
-                watchHabit.done = wh.done
-                NotificationCenter.default.post(name: Notification.Name(rawValue: recordDataReceivedFromPhoneNotificationID), object: self)
-                return
-            }
-        }
-    }
-    
     func requestDataFromPhone(completion: (() -> ())?) {
         session?.sendMessage(["test": true], replyHandler: { messageDict in
             print("i think we got a reply from phone?")

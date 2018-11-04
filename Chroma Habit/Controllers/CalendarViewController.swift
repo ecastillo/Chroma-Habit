@@ -18,7 +18,7 @@ class CalendarViewController: UIViewController {
     let dateFormatter = DateFormatter()
     var selectedDate = Date()
     let todaysDate = Date()
-    let realm = try! Realm()
+    //let realm = try! Realm()
     var isInEditMode = false
     let statusBarBackground = CAGradientLayer()
     let tableviewBgGradientLayer = CAGradientLayer()
@@ -287,18 +287,14 @@ extension CalendarViewController: JTAppleCalendarViewDelegate, JTAppleCalendarVi
         
         if records.count > 0 {
             cell.progressContainerLayer.isHidden = false
-            cell.progressContainerLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
+            //cell.progressContainerLayer.sublayers?.forEach({$0.removeFromSuperlayer()})
             
-            let sliceHeight = cell.layer.bounds.height/CGFloat(records.count)
+            cell.progressContainerLayer.bounds = cell.layer.bounds
             
-            for (i, record) in records.enumerated().reversed() {
-                let slice = CAShapeLayer()
-                slice.frame = cell.layer.bounds
-                slice.frame.size.height = sliceHeight*CGFloat(i+1)
-                slice.backgroundColor = habitColors[(record.habit?.id)!]?.cgColor
-                cell.progressContainerLayer.addSublayer(slice)
-                cell.progressContainerLayer.layoutIfNeeded()
-            }
+            //let sliceHeight = cell.layer.bounds.height/CGFloat(records.count)
+            
+            let sliceColors = Array(records).map { self.habitColors[($0.habit?.id)!]! }
+            cell.progressContainerLayer.sliceColors = sliceColors
         } else {
             cell.progressContainerLayer.isHidden = true
         }
@@ -386,7 +382,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("cellForRowAtIndexPath has run")
+        //print("cellForRowAtIndexPath has run")
         let habitCell = tableView.dequeueReusableCell(withIdentifier: "habitCell", for: indexPath) as! HabitsTableViewCell
         
         if let habit = habits?[indexPath.row] {
@@ -400,7 +396,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
             habitCell.checkmarkView.layer.borderColor = UIColor(hexString: habit.color).cgColor
             
             let isDone = (DBManager.shared.getRecord(for: habit, on: selectedDate) != nil)
-            print("cellForRowAtIndexPath: habit \(habit.name) is done? \(isDone)")
+            //print("cellForRowAtIndexPath: habit \(habit.name) is done? \(isDone)")
             habitCell.setDone(isDone, animated: false)
         
             CATransaction.commit()

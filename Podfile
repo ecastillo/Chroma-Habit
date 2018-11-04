@@ -27,7 +27,6 @@ target 'Watch Extension' do
   platform :watchos, '2.0'
   #pod 'RealmSwift'
   pod 'DynamicColor', '~> 4.0.2'
-
 end
 
 #post_install do |installer|
@@ -37,3 +36,9 @@ end
 #    end
 #  end
 #end
+
+target 'Chroma Habit Widget' do
+  use_frameworks!
+  pod 'RealmSwift'
+  pod 'DynamicColor', '~> 4.0.2'
+end
