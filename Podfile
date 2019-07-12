@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '11.0'
 
 # ignore all warnings from all pods
 inhibit_all_warnings!
@@ -15,8 +15,8 @@ target 'Chroma Habit' do
   pod 'RealmSwift'
   pod 'JTAppleCalendar', '~> 7.0'
   #pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
-  pod 'DynamicColor', '~> 4.0.2'
-  pod 'PopupDialog', '~> 0.8'
+  pod 'DynamicColor', '~> 4.0'
+  pod 'PopupDialog', '~> 1.1'
   pod 'Onboard'
 
 end
@@ -26,7 +26,7 @@ target 'Watch Extension' do
   use_frameworks!
   platform :watchos, '2.0'
   #pod 'RealmSwift'
-  pod 'DynamicColor', '~> 4.0.2'
+  pod 'DynamicColor', '~> 4.0'
 end
 
 #post_install do |installer|
@@ -40,5 +40,5 @@ end
 target 'Chroma Habit Widget' do
   use_frameworks!
   pod 'RealmSwift'
-  pod 'DynamicColor', '~> 4.0.2'
+  pod 'DynamicColor', '~> 4.0'
 end
